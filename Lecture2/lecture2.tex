@@ -121,36 +121,6 @@
 \end{frame}
 %-------------------------
 %-------------------------
-%\begin{frame}
-%    \frametitle{Community detection is harder!}
-%    \begin{columns}
-%        \column{0.6\linewidth}
-%        \centering
-%        {\bf Graph partitioning}
-%        \vspace{3em}
-%        \begin{itemize}
-%        \setlength\itemsep{1em}
-%            \item{\small well defined}
-%            \item{\small Number of groups is fixed}
-%            \item{\small Sizes of the groups are fixed}
-%            \item{\small Divide even if no good division exists}
-%        \end{itemize}
-%
-%        \column{0.6\linewidth}
-%        \centering
-%        {\bf Community detection}
-%        \vspace{1em}
-%        \begin{itemize}
-%        \setlength\itemsep{1em}
-%            \item{ill-defined}
-%            \item{\small Number of groups depends on the structure of the network}
-%            \item{\small Sizes of the groups depend on the structure of the network}
-%            \item{\small Discover natural fault lines}
-%        \end{itemize}
-%    \end{columns}
-%\end{frame}
-%-------------------------
-%-------------------------
 \begin{frame}
     \frametitle{Community detection is harder!}
     \begin{itemize}
@@ -181,6 +151,7 @@
     \frametitle{Too many algorithms}
     \centering
     \begin{itemize}
+            \note<1>{I can go on}
     \setlength\itemsep{1em}
         \item{Girvan-Newman algorithm}
         \item{Modularity maximization}
@@ -202,19 +173,81 @@
         \item{Bisecting a graph with $n$ nodes}
         \item{Group sizes are not fixed}
         \item{Minimum cut size?}
+            \note<1>{Empty group}
     \end{itemize}
+    \note<2>{Different measure}
+
+    \vspace{2em}
+    \pause
+    {\bf A different measure of the quality of division is required..}
 \end{frame}
 %-------------------------
 %-------------------------
 \begin{frame}
     \frametitle{Quantification of community structure}
     \centering
+
+    \begin{itemize}
+        \setlength\itemsep{1em}
+        \item{Fewer than expected edges between the groups}
+            \note<1>{few edges = expected edges = not a good division}
+            \note<2>{Remember assortativity}
+            \pause
+        \item{Equivalently, more than expected edges inside the groups}
+            \pause
+            \note<3>{Divide network using modularity}
+        \item{Assortativity mixing and modularity}
+            \pause
+        \item{Look for divisions with high modularity}
+            \note<4>{Heuristics are needed}
+            \pause
+        \item{Modularity maximization is hard}
+    \end{itemize}
+
 \end{frame}
 %-------------------------
 %-------------------------
 \begin{frame}
-    \frametitle{}
+    \frametitle{Heuristic algorithms for modularity maximization}
     \centering
+    \begin{itemize}
+        \setlength\itemsep{2em}
+        \item{{\bf Agglomerative algorithms:}
+            
+    \begin{itemize}
+        \setlength\itemsep{1em}
+        \item{Hierarchical clustering}
+        \item{Louvain method}
+        \item{CNM algorithm}
+    \end{itemize}
+            
+            }
+        \item{{\bf Divisive algorithms:}
+            
+    \begin{itemize}
+        \setlength\itemsep{1em}
+        \item{Girvan-Newman algorithm}
+        \item{Radichhi algorithm}
+    \end{itemize}
+            
+            
+            }
+    \end{itemize}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Newman-Girvan algorithm}
+    \centering
+    
+    \begin{itemize}
+        \setlength\itemsep{1em}
+        \item{Look for edges between the communities}
+
+            %\note<1>{Number of shortest paths that pass through a given edge}
+            \note<1>{Let's have a look at the edge betweenness}
+        \item{Edge betweenness}
+    \end{itemize}
 \end{frame}
 %-------------------------
 %-------------------------
