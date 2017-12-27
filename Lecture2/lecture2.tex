@@ -7,7 +7,7 @@
 \usepackage{listings}
 \usepackage{pgfpages}
 %\setbeameroption{show notes}
-\setbeameroption{show notes on second screen=right}
+%\setbeameroption{show notes on second screen=right}
 \graphicspath{{Figures/}}
 
 \title{Large-scale structure of complex networks (Part 2)}
@@ -251,15 +251,51 @@
 \end{frame}
 %-------------------------
 %-------------------------
+%\begin{frame}
+%    \frametitle{Edge betweenness}
+%    \begin{columns}
+%        \column{0.5\linewidth}
+%        \centering
+%        \includegraphics[width=0.9\columnwidth]{msc.pdf}
+%        \column{0.6\linewidth}
+%        \centering
+%
+%        \begin{itemize}
+%        \setlength\itemsep{1em}
+%            \item{Path between two nodes}
+%            \item{Shortest path between two nodes}
+%            \item{Number of shortest paths that go through a given edge}
+%        \end{itemize}
+%    \end{columns}
+%\end{frame}
+%-------------------------
+%-------------------------
 \begin{frame}
-    \frametitle{}
+    \frametitle{Edge betweenness}
     \centering
+    \vspace{2em}
+        \begin{itemize}
+        \setlength\itemsep{1em}
+            \item{Path between two nodes}
+            \item{Shortest path between two nodes}
+            \item{Number of shortest paths that go through a given edge}
+        \end{itemize}
+    \includegraphics[width=0.7\columnwidth,trim=0 0 0 80,clip=true]{msc3.pdf}
+
 \end{frame}
 %-------------------------
 %-------------------------
 \begin{frame}
-    \frametitle{}
+    \frametitle{The algorithm}
     \centering
+
+    \begin{itemize}
+    \setlength\itemsep{1em}
+        \item{Calculate betweenness for all edges}
+        \item{Remove the edge with the highest betweenness}
+        \item{Recalculate betweenness for all edges}
+        \item{Repeat}
+    \end{itemize}
 \end{frame}
 %-------------------------
 %-------------------------
