@@ -1,0 +1,567 @@
+\documentclass{beamer}
+\graphicspath{{Figures/}}
+
+\usepackage{amsmath, amssymb, graphicx, float}
+
+%\usepackage{AnnArbor}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+\usetheme{boxes}
+%\usepackage{CambridgeUS}
+%\usepackage{Copenhagen}
+%\usetheme{Dresden}
+%\usetheme{default}
+%\usetheme{Frankfurt}
+%\usetheme{Hannover}
+%\usetheme{Madrid}
+%\usetheme{Rochester}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usepackage{Singapore}
+%\usetheme{Warsaw}
+
+
+\setbeamerfont{title}{family=\rm}
+\usefonttheme{serif}
+%\setmainfont{Liberation Serif}
+
+%\title{{\normalsize Large-scale structure of complex networks (Part 1)}}
+\title{{Large-scale structure of complex networks (Part 1)}}
+\author{\small Snehal M. Shekatkar}
+\institute{Centre for modeling and simulation,\\  S.P. Pune University, Pune}
+\date{}
+
+\begin{document}
+
+%--------------------------------------
+\begin{frame}
+    \frametitle{}
+    \maketitle
+\end{frame}
+%--------------------------------------
+
+%--------------------------------------
+\begin{frame}
+    \frametitle{Networks/Graphs}
+    \begin{columns}
+        \column{0.45\linewidth}
+            \centering
+            \includegraphics[width=\columnwidth]{lesmis.pdf}
+        \column{0.58\linewidth}
+            \begin{itemize}
+                \setlength\itemsep{2em}
+                \item{Points connected by lines}
+                \item{Points: nodes/vertices/actors}
+                \item{Lines: links/edges/ties}
+                \item{Degree: number of neighbors}
+            \end{itemize}
+    \end{columns}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{Real-world networks}
+    \begin{itemize}
+        \setlength\itemsep{1em}
+            \item{{\bf Social}: Facebook, Friendships, Scientific collaborations}
+            \item{{\bf Biological}: Human brain, Metabolic reactions }
+            \item{{\bf Technological}: Internet, World-Wide-Web}
+            \item{{\bf Transport}: Airports-Air routes, Cities-Highways}
+    \end{itemize}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+%\begin{frame}
+%    \frametitle{Real-world networks}
+%    \begin{figure}
+%        \begin{center}
+%            \includegraphics[width=0.8\columnwidth]{airports_network_India.pdf}
+%        \end{center}
+%    \end{figure}
+%\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{Two-questions}
+        \begin{center}
+            {\huge What are the nodes?}\\
+            \vspace{5em}
+            {\huge What are the links?}
+        \end{center}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{Is this a network?}
+
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=0.6\columnwidth]{galaxy.jpeg}
+    \end{center}
+\end{figure}
+
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{Is this a network?}
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=0.4\columnwidth]{crystal.jpeg}
+    \end{center}
+\end{figure}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{Is this a network?}
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=0.7\columnwidth]{cauliflower.jpeg}
+    \end{center}
+\end{figure}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{When is a network description useful?}
+    \begin{itemize}
+    \setlength\itemsep{1em}
+        \item{Sparse data}
+        \item{Lack of regularity}
+        \item{Lack of a better model}
+    \end{itemize}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{Complex networks}
+    \begin{itemize}
+    \setlength\itemsep{2em}
+       \item{\Large {\bf Complex}: Edge of order and randomness}
+        \pause
+        \item{\Large {\bf Structure vs Processes}
+            \begin{itemize}
+            \setlength\itemsep{1em}
+                \item{Spreading of epidemics, rumors, ideas}
+                \item{Traffic}
+                \item{Neuronal dynamics}
+            \end{itemize}
+        }
+        \pause
+        \item{\Large \bf Structure is intersting on its own!}
+    \end{itemize}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{Simplifications}
+    \begin{columns}
+        \column{0.7\linewidth}
+            \centering
+            \includegraphics[width=0.9\columnwidth]{weighted_directed_nonsimple2.pdf}
+        \column{0.4\linewidth}
+            \centering
+            \begin{itemize}
+            \setlength\itemsep{1em}
+                \item{Simple}
+                \item{Undirected}
+                \item{Unweighted}
+                \item{Static}
+            \end{itemize}
+    \end{columns}
+\end{frame}
+%--------------------------------------
+
+%----------------------------------------
+\begin{frame}
+    \frametitle{Simplifications}
+    \centering
+    {\Large \bf The largest component}
+    \begin{figure}
+        \includegraphics[width=0.7\columnwidth]{netscience.pdf}
+    \end{figure}
+\end{frame}
+%----------------------------------------
+
+%--------------------------------------
+\begin{frame}
+    \frametitle{Large-scale structure of complex networks}
+    \begin{itemize}
+    \setlength\itemsep{1em}
+        \item{{\bf Small-scale structures}: 
+            \begin{itemize}
+                \item{degree}
+                \item{local clustering}
+                \item{centrality scores}
+            \end{itemize}
+}
+        \item{{\bf Meso-scale structures}: 
+            \begin{itemize}
+                \item{motifs}
+                \item{vertex similarity}
+                \item{rich-club effect}
+            \end{itemize}
+}
+        \item{{\bf Large-scale structures}: 
+                \begin{itemize}
+                    \item{components and percolation}
+                    \item{small-world effect}
+                    \item{ranking}
+                    \item{{\bf degree distribution}}
+                    \item{{\bf assortative mixing}}
+                    \item{{\bf community structure}}
+                \end{itemize}
+}
+    \end{itemize}
+    
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{Degree-distrbution}
+    \begin{columns}
+        \column{0.5\linewidth}
+        \centering
+        \includegraphics[width=\columnwidth]{small_graph.pdf}
+        \column{0.5\linewidth}
+        \centering
+        Total $10$ vertices
+
+        $$p_{1} = \frac{3}{10}$$
+        $$p_{2} = \frac{2}{10}$$
+        $$p_{3} = \frac{2}{10}$$
+        $$p_{4} = \frac{2}{10}$$
+        $$p_{5} = \frac{1}{10}$$
+    \end{columns}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{Degree distribution}
+    \begin{columns}
+        \column{0.6\linewidth}
+        \centering
+        \includegraphics[width=\columnwidth]{big_graph.pdf}
+
+        \column{0.6\linewidth}
+        \includegraphics[width=\columnwidth]{deg_distri_example.pdf}
+        \centering
+    \end{columns}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{Metabolic network of the worm C-elegans}
+    \begin{columns}
+        \column{0.6\linewidth}
+        \centering
+        \includegraphics[width=\columnwidth]{celegans_metabolic.pdf}
+        \column{0.6\linewidth}
+        \centering
+        \includegraphics[width=\columnwidth]{deg_distri_celegans_metabolic.pdf}
+    \end{columns}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{Degree distribution of the real world networks}
+    \begin{columns}
+        \column{0.6\linewidth}
+        \centering
+        \includegraphics[width=\columnwidth]{airports_network_India.pdf}
+
+        \column{0.6\linewidth}
+        \centering
+        \includegraphics[width=\columnwidth,trim=30 0 0 0,clip=true]{deg_distri_india.pdf}
+    
+    \end{columns}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{Degree distribution of the real-world networks}
+    \begin{columns}
+        \column{0.6\linewidth}
+        \centering
+        \includegraphics[width=\columnwidth]{airports_network_global.pdf}
+        \column{0.6\linewidth}
+        \includegraphics[width=\columnwidth]{deg_distri_global_airport.pdf}
+        \centering
+    \end{columns}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{Power-laws and scale-free networks}
+    \begin{columns}
+        \column{0.7\linewidth}
+        \centering
+        \includegraphics[width=\columnwidth]{deg_distri_global_airport_log.pdf}
+        \column{0.4\linewidth}
+        \centering
+        $$\ln p(k) = -\alpha \ln k + c$$ 
+        $$p(k) = Ck^{-\alpha}$$
+
+    \end{columns}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{Detecting and visualizing power-laws}
+    \begin{columns}
+    \column{0.35\linewidth}
+        \centering
+        {\bf Log-log scale}
+        \includegraphics[width=\columnwidth]{deg_distri_global_airport_log.pdf}
+    \column{0.35\linewidth}
+        \centering
+        {\bf Logarthmic bins}
+        \includegraphics[width=\columnwidth]{deg_distri_global_airport_log_logbins.pdf}
+    \column{0.35\linewidth}
+        \centering
+        {\bf Cumulative }
+        \includegraphics[width=\columnwidth]{deg_distri_global_airport_log_logbins_cumul.pdf}
+    \end{columns}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{}
+
+    Calculation of the scaling exponent
+    $$\alpha = 1 + \frac{N}{\left[\sum\limits_i\frac{k_i}{k_{\text{min}}-\frac{1}{2}}\right]}$$
+    Statistical error on $\alpha$
+    $$\sigma = \frac{\alpha-1}{\sqrt{N}}$$
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{Assortative mixing}
+    \vspace{2em}
+    \centering
+    {\small Social network of school-children with two races: Black and White}
+    \begin{figure}
+        \begin{center}
+        %\includegraphics[width=0.8\columnwidth,trim=20 200 200 20,clip=true]{assortativity_high_school.pdf}
+        \includegraphics[width=0.8\columnwidth,trim=0 0 0 50,clip=true]{assort_network.pdf}
+        \end{center}
+    \end{figure}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{Assortative mixing}
+        \begin{itemize}
+        \setlength\itemsep{1em}
+            \item{{\bf Social networks:} race, age, physical locations, language, income, educational level}
+            \item{{\bf Citation networks:} topics of the study}
+            \item{{\bf World Wide Web:} contents of the webpages}
+            \item{{\bf Internet:} physical locations}
+        \end{itemize}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \centering
+        \vspace{1em}
+    {\bf Assortative mixing by enumerative characteristics}
+        \begin{itemize}
+        \setlength\itemsep{1em}
+            \item{Characteristics with a finite set of values} 
+            \item{No ordering} 
+            \item{Nationality, Gender, Race} 
+        \end{itemize}
+        \vspace{1em}
+    {\bf Assortative mixing by scalar characteristics}
+        \begin{itemize}
+        \setlength\itemsep{1em}
+            \item{Characteristics with a finite or infinite set of values}
+            \item{Ordering}
+            \item{Age, income, degree}
+        \end{itemize}
+        \pause
+        \vspace{1em}
+        The network is {\bf assortative} if a large fraction of the edges fall between vertices of the same type
+
+        \vspace{1em}
+        If the opposite is true, the network is called {\bf dissortative}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{Quantification for enumerative characteristics}
+        
+    \begin{itemize}
+    \setlength\itemsep{2em}
+        \item{Fraction of edges connecting vertices of the same type?}
+        
+        \pause
+        \item{Fraction of the actual minus the expected number of edges connecting the vertices when connections are made at random\\
+
+        \pause
+        \item{Has value $0$ in trivial cases}
+}
+    \end{itemize}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{Number of edges between the same types}
+        \begin{center}
+        $c_i$ : the class or type of vertex $i$\\
+        \vspace{2em}
+        $n_c$ : total number of types
+        \vspace{2em}
+
+        Total number of edges between the vertices of the same type:
+        $$\sum\limits_{\text{edges}(i,j)}\delta(i,j)=\frac{1}{2}\sum\limits_{i,j}A_{ij}\delta(c_i,c_j)$$ 
+        \end{center}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{Expected number of edges between the same types}
+    \begin{itemize}
+    \setlength\itemsep{1em}
+        \item{Half-edges or stubs, degrees preserved}
+        \item{For a given stub at vertex $i$, there are $2m-1$ stubs to which it can connect to}
+        \item{Probability of connecting vertex $j$ is $\frac{k_j}{2m}$}
+        \item{Expected number of edges between $i$ and $j$ is $\frac{k_ik_j}{2m-1}$}
+        \item{Expected number of edges between all the pairs of the same type:
+            $$\frac{1}{2}\sum\limits_{ij}\frac{k_ik_j}{2m}\delta(c_i,c_j)$$
+}
+    \end{itemize}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{Modularity}
+        $$\frac{1}{2}\sum\limits_{i,j}A_{ij}\delta(c_i,c_j)-\frac{1}{2}\sum\limits_{ij}\frac{k_ik_j}{2m}\delta(c_i,c_j)=\frac{1}{2}\sum\limits_{ij}\left(A_{ij}-\frac{k_ik_j}{2m}\right)\delta(c_i,c_j)$$ 
+
+        \vspace{2em}
+        \pause
+        $$Q = \frac{1}{2m}\sum\limits_{ij}\left(A_{ij}-\frac{k_ik_j}{2m}\right)\delta(c_i,c_j)$$
+
+        \vspace{2em}
+        \centering
+        $Q$ is called the {\bf modularity} of the network w.r.t. to $c$
+
+        $$B_{ij}=A_{ij}-\frac{k_ik_j}{2m}$$
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{Normalized modularity}
+    \centering
+    Modularity is not $1$ even for a perfectly mixed network.
+
+    \pause
+
+    $$Q_{\text{max}} = \frac{1}{2m}\left(2m-\sum\limits_{ij}\frac{k_ik_j}{2m}\delta(c_i,c_j)\right)$$
+
+    \pause
+    $$Q_{\text{norm}} = \frac{Q}{Q_{\text{max}}}$$
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{Quantification for scalar characteristics}
+    \centering
+    $x_i$ : a scalar value for vertex $i$
+    \vspace{1em}
+
+    $$r = \frac{\sum\limits_{ij}(A_{ij}-k_ik_j/2m)x_ix_j}{\sum\limits_{ij}(k_i\delta_{ij}-k_ik_j/2m)x_ix_j}$$
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{Degree-correlations/Degree-assortativity}
+    
+    \begin{itemize}
+    \setlength\itemsep{1em}
+        \item{Using degree itself as a scalar property of the nodes}
+        \item{Degree is the property of the network structure}
+        \item{One property (degree) dictating the others (position of the edges)}
+    \end{itemize}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{}
+    \centering
+    \includegraphics[width=\columnwidth]{assortativity_list.png}
+\footnote{Newman, M.E.J., Assortative Mixing in Networks, PRL, 89, 20.}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{}
+\end{frame}
+%--------------------------------------
+\end{document}

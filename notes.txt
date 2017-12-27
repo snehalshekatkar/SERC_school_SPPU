@@ -1,0 +1,55 @@
+Large-scale structure of complex networks
+
+* Structure vs processes
+
+* Simplification
+    - Unweighted, undirected, static, simple (no multiedges and self-loops) networks. 
+    - Only the largest component
+
+* What do we mean by a large-scale structure (LSS)?
+* Which LSS to consider?
+    - degree distribution
+    - assortative mixing
+    - community structure
+
+* Which ones won't be covered?
+    - small-world effect
+    - percolation properties of graphs
+    - distributions of centralities and local clustering coefficients
+    - rich club effect
+
+__________________________________________________________________________________________________
+
+First lecture
+
+* Degree distribution 
+    - empirical networks
+    - power-laws and their detection
+
+* Assortativity
+    - empirical networks
+    - discrete case and scalar case
+    - non-linear correlations
+
+___________________________________________________________________________________________________
+
+Second lecture
+
+* What are communities? 
+* Graph partitioning vs community detection
+* Spectral partitioning
+* Newman-Girvan algorithm
+* Modern view of communities and statistical inference
+
+
+_________________________________________________________________________________________________
+
+Lab
+   
+* Basics of networkx
+* Calculation of assortativity coefficient
+* Newman-Girvan algorithm
+_______________________________________________________________________________________________
+
+
+References:
