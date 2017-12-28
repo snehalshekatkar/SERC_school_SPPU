@@ -28,6 +28,9 @@ edge_betweenness = gt.betweenness(g)[1]
 for e in g.edges():
     edge_betweenness[e] *= 20
 
-gt.graph_draw(g, vertex_text = name, vertex_font_size = 8, vertex_shape = "double_circle", vertex_fill_color = "#729fcf", vertex_pen_width = 3, edge_pen_width = edge_betweenness, output = 'msc3.pdf')
+g.vertex_properties['name'] = name
+g.save('msc.gml')
+
+#gt.graph_draw(g, vertex_text = name, vertex_font_size = 8, vertex_shape = "double_circle", vertex_fill_color = "#729fcf", vertex_pen_width = 3, edge_pen_width = edge_betweenness, output = 'msc3.pdf')
 #gt.graph_draw(g, pos = pos, vertex_fill_color = color, vertex_shape = shape, vertex_color = 'k', output = 'small_graph2.pdf')
 
