@@ -6,8 +6,9 @@
 \usepackage{amsmath, amssymb}
 \usepackage{listings}
 \usepackage{pgfpages}
+\usepackage{xcolor}
 %\setbeameroption{show notes}
-%\setbeameroption{show notes on second screen=right}
+\setbeameroption{show notes on second screen=right}
 \graphicspath{{Figures/}}
 
 \title{Large-scale structure of complex networks (Part 2)}
@@ -93,18 +94,18 @@
 \begin{frame}
     \frametitle{Graph partitioning}
     \centering
-    Problem of dividing a graph in a given number of groups of given sizes such that the number of links between the groups is minimized
+    Problem of dividing a graph in a given number of groups of given sizes such that the number of links between the groups ({\bf cut size}) is minimized
 
-    \includegraphics[width=0.5\columnwidth]{small_graph1.pdf}
+    \includegraphics[width=0.5\columnwidth]{moderate_sized_network1.pdf}
 \end{frame}
 %-------------------------
 %-------------------------
 \begin{frame}
     \frametitle{Graph partitioning}
     \centering
-    Problem of dividing a graph in a given number of groups of given sizes such that the number of links between the groups is minimized
+    Problem of dividing a graph in a given number of groups of given sizes such that the number of links between the groups ({\bf cut size}) is minimized
 
-    \includegraphics[width=0.5\columnwidth]{small_graph2.pdf}
+    \includegraphics[width=0.5\columnwidth]{moderate_sized_network2.pdf}
 \end{frame}
 %-------------------------
 %-------------------------
@@ -117,7 +118,77 @@
         \item{Find two groups with sizes $n_1$ and $n_2$ such that the cut size is minimum}
         \item{Number of ways: $\frac{n!}{n_1!n_2!}\approx \frac{2^{n+1}}{\sqrt{n}}$}
     \end{itemize}
+    \vspace{20pt}
+    {\bf Heuristics are needed!}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Kernighan-Lin algorithm}
+    \begin{columns}
+        \column{0.6\linewidth}
+        \centering
+        {\bf cut size = $4$}
+        \includegraphics[width=0.8\columnwidth]{kl1.pdf}
+
+        \column{0.5\linewidth}
+        \centering
+        \begin{itemize}
+            \setlength\itemsep{1em}
+            \item{\small Divide the vertices into two groups of the required sizes and calculate the cut size}
+                \pause
+            \item{\small Find a pair of nodes which when switched, will reduce the cut size most and switch them}
+        \end{itemize}
+    \end{columns}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Kernighan-Lin algorithm}
+    \begin{columns}
+        \column{0.6\linewidth}
+        \centering
+        {\bf cut size = $2$}
+        \includegraphics[width=0.8\columnwidth]{kl2.pdf}
+
+        \column{0.5\linewidth}
+        \centering
+        \begin{itemize}
+            \setlength\itemsep{1em}
+            \item{\small Divide the vertices into two groups of the required sizes}
+            \item{\small Find a pair of nodes which when switched, will reduce the cut size most and switch them}
+                \pause
+            \item{\small If no such pair exists, select the pair which least increases the cut size}
+                \pause
+            \item{\small Continue this such that the already switched pair is not switched again}
+        \end{itemize}
+    \end{columns}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Kernighan-Lin algorithm}
+    \begin{itemize}
+        \setlength\itemsep{1em}
+        \item{Go through all the states and select the one with the least cut size}
+        \item{Start with this state and repeat the whole procedure}
+        \item{Continue till the cut size no longer becomes smaller}
+            \note<1>{Group sizes remain constant}
+        \item{Starting with many random initial conditions is better}
+    \end{itemize}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Spectral paritioning}
     \centering
+
+    \begin{itemize}
+        \setlength\itemsep{1em}
+        \item{Faster algorithm than Kernighan-Lin}
+        \item{Uses properties of the graph Laplacian}
+        \item{More complex to implement than Kernighan-Lin}
+    \end{itemize}
 \end{frame}
 %-------------------------
 %-------------------------
@@ -148,19 +219,58 @@
 %-------------------------
 %-------------------------
 \begin{frame}
-    \frametitle{Too many algorithms}
+    \frametitle{Many definitions.. many algorithms!}
     \centering
     \begin{itemize}
-            \note<1>{I can go on}
     \setlength\itemsep{1em}
+            \note<1>{I can go on.. These algorithms use different definitions/views of communities}
         \item{Girvan-Newman algorithm}
-        \item{Modularity maximization}
+        \item{Kernighan-Lin-Newman algorithm}
         \item{Spectral decomposition}
         \item{Clique-percolation}
         \item{Radom walk methods}
         \item{Statistical inference}
         \item{Label propagation}
         \item{Hierarchical clustering}
+    \end{itemize}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Broad classification}
+    \centering
+    \begin{itemize}
+        \setlength\itemsep{0.5em}
+        \item{{\bf Agglomerative algorithms:}
+            
+    \begin{itemize}
+        \setlength\itemsep{0.5em}
+        \item{Hierarchical clustering}
+        \item{Louvain method}
+        \item{CNM algorithm}
+    \end{itemize}
+            
+            }
+        \item{{\bf Divisive algorithms:}
+            
+    \begin{itemize}
+        \setlength\itemsep{0.5em}
+        \item{\textcolor{brown}{Girvan-Newman algorithm}}
+        \item{Radichhi algorithm}
+    \end{itemize}
+            
+            
+            }
+        \item{{\bf Assignment algorithms:}
+
+    \begin{itemize}
+        \setlength\itemsep{1em}
+        \item{Label propagation}
+        \item{\textcolor{brown}{Spectral partitioning}}
+        \item{\textcolor{brown}{Kernighan-Lin-Newman algorithm}}
+    \end{itemize}
+
+            }
     \end{itemize}
 \end{frame}
 %-------------------------
@@ -208,37 +318,6 @@
 %-------------------------
 %-------------------------
 \begin{frame}
-    \frametitle{Heuristic algorithms for modularity maximization}
-    \centering
-    \begin{itemize}
-        \setlength\itemsep{2em}
-        \item{{\bf Agglomerative algorithms:}
-            
-    \begin{itemize}
-        \setlength\itemsep{1em}
-        \item{Hierarchical clustering}
-        \item{Louvain method}
-        \item{CNM algorithm}
-    \end{itemize}
-            
-            }
-        \item{{\bf Divisive algorithms:}
-            
-    \begin{itemize}
-        \setlength\itemsep{1em}
-        \item{Girvan-Newman algorithm}
-        \item{Radichhi algorithm}
-    \end{itemize}
-            
-            
-            }
-
-        \item{\bf Switching algorithms:}
-    \end{itemize}
-\end{frame}
-%-------------------------
-%-------------------------
-\begin{frame}
     \frametitle{Newman-Girvan algorithm}
     \centering
     
@@ -251,25 +330,6 @@
         \item{Edge betweenness}
     \end{itemize}
 \end{frame}
-%-------------------------
-%-------------------------
-%\begin{frame}
-%    \frametitle{Edge betweenness}
-%    \begin{columns}
-%        \column{0.5\linewidth}
-%        \centering
-%        \includegraphics[width=0.9\columnwidth]{msc.pdf}
-%        \column{0.6\linewidth}
-%        \centering
-%
-%        \begin{itemize}
-%        \setlength\itemsep{1em}
-%            \item{Path between two nodes}
-%            \item{Shortest path between two nodes}
-%            \item{Number of shortest paths that go through a given edge}
-%        \end{itemize}
-%    \end{columns}
-%\end{frame}
 %-------------------------
 %-------------------------
 \begin{frame}
@@ -300,178 +360,178 @@
     \end{itemize}
 \end{frame}
 %-------------------------
-%-------------------------
-\begin{frame}
-    \frametitle{}
-    \centering
-\end{frame}
-%-------------------------
-%-------------------------
-\begin{frame}
-    \frametitle{}
-    \centering
-\end{frame}
-%-------------------------
-%-------------------------
-\begin{frame}
-    \frametitle{}
-    \centering
-\end{frame}
-%-------------------------
-%-------------------------
-\begin{frame}
-    \frametitle{}
-    \centering
-\end{frame}
-%-------------------------
-%-------------------------
-\begin{frame}
-    \frametitle{}
-    \centering
-\end{frame}
-%-------------------------
-%-------------------------
-\begin{frame}
-    \frametitle{}
-    \centering
-\end{frame}
-%-------------------------
-%-------------------------
-\begin{frame}
-    \frametitle{}
-    \centering
-\end{frame}
-%-------------------------
-%-------------------------
-\begin{frame}
-    \frametitle{}
-    \centering
-\end{frame}
-%-------------------------
-%-------------------------
-\begin{frame}
-    \frametitle{}
-    \centering
-\end{frame}
-%-------------------------
-%-------------------------
-\begin{frame}
-    \frametitle{}
-    \centering
-\end{frame}
-%-------------------------
-%-------------------------
-\begin{frame}
-    \frametitle{}
-    \centering
-\end{frame}
-%-------------------------
-%-------------------------
-\begin{frame}
-    \frametitle{}
-    \centering
-\end{frame}
-%-------------------------
-%-------------------------
-\begin{frame}
-    \frametitle{}
-    \centering
-\end{frame}
-%-------------------------
-%-------------------------
-\begin{frame}
-    \frametitle{}
-    \centering
-\end{frame}
-%-------------------------
-%-------------------------
-\begin{frame}
-    \frametitle{}
-    \centering
-\end{frame}
-%-------------------------
-%-------------------------
-\begin{frame}
-    \frametitle{}
-    \centering
-\end{frame}
-%-------------------------
-%-------------------------
-\begin{frame}
-    \frametitle{}
-    \centering
-\end{frame}
-%-------------------------
-%-------------------------
-\begin{frame}
-    \frametitle{}
-    \centering
-\end{frame}
-%-------------------------
-%-------------------------
-\begin{frame}
-    \frametitle{}
-    \centering
-\end{frame}
-%-------------------------
-%-------------------------
-\begin{frame}
-    \frametitle{}
-    \centering
-\end{frame}
-%-------------------------
-%-------------------------
-\begin{frame}
-    \frametitle{}
-    \centering
-\end{frame}
-%-------------------------
-%-------------------------
-\begin{frame}
-    \frametitle{}
-    \centering
-\end{frame}
-%-------------------------
-%-------------------------
-\begin{frame}
-    \frametitle{}
-    \centering
-\end{frame}
-%-------------------------
-%-------------------------
-\begin{frame}
-    \frametitle{}
-    \centering
-\end{frame}
-%-------------------------
-%-------------------------
-\begin{frame}
-    \frametitle{}
-    \centering
-\end{frame}
-%-------------------------
-%-------------------------
-\begin{frame}
-    \frametitle{}
-    \centering
-\end{frame}
-%-------------------------
-%-------------------------
-\begin{frame}
-    \frametitle{}
-    \centering
-\end{frame}
-%-------------------------
-%-------------------------
-\begin{frame}
-    \frametitle{}
-    \centering
-\end{frame}
-%-------------------------
-%-------------------------
-\begin{frame}
-    \frametitle{}
-    \centering
-\end{frame}
-%-------------------------
+%%-------------------------
+%\begin{frame}
+%    \frametitle{}
+%    \centering
+%\end{frame}
+%%-------------------------
+%%-------------------------
+%\begin{frame}
+%    \frametitle{}
+%    \centering
+%\end{frame}
+%%-------------------------
+%%-------------------------
+%\begin{frame}
+%    \frametitle{}
+%    \centering
+%\end{frame}
+%%-------------------------
+%%-------------------------
+%\begin{frame}
+%    \frametitle{}
+%    \centering
+%\end{frame}
+%%-------------------------
+%%-------------------------
+%\begin{frame}
+%    \frametitle{}
+%    \centering
+%\end{frame}
+%%-------------------------
+%%-------------------------
+%\begin{frame}
+%    \frametitle{}
+%    \centering
+%\end{frame}
+%%-------------------------
+%%-------------------------
+%\begin{frame}
+%    \frametitle{}
+%    \centering
+%\end{frame}
+%%-------------------------
+%%-------------------------
+%\begin{frame}
+%    \frametitle{}
+%    \centering
+%\end{frame}
+%%-------------------------
+%%-------------------------
+%\begin{frame}
+%    \frametitle{}
+%    \centering
+%\end{frame}
+%%-------------------------
+%%-------------------------
+%\begin{frame}
+%    \frametitle{}
+%    \centering
+%\end{frame}
+%%-------------------------
+%%-------------------------
+%\begin{frame}
+%    \frametitle{}
+%    \centering
+%\end{frame}
+%%-------------------------
+%%-------------------------
+%\begin{frame}
+%    \frametitle{}
+%    \centering
+%\end{frame}
+%%-------------------------
+%%-------------------------
+%\begin{frame}
+%    \frametitle{}
+%    \centering
+%\end{frame}
+%%-------------------------
+%%-------------------------
+%\begin{frame}
+%    \frametitle{}
+%    \centering
+%\end{frame}
+%%-------------------------
+%%-------------------------
+%\begin{frame}
+%    \frametitle{}
+%    \centering
+%\end{frame}
+%%-------------------------
+%%-------------------------
+%\begin{frame}
+%    \frametitle{}
+%    \centering
+%\end{frame}
+%%-------------------------
+%%-------------------------
+%\begin{frame}
+%    \frametitle{}
+%    \centering
+%\end{frame}
+%%-------------------------
+%%-------------------------
+%\begin{frame}
+%    \frametitle{}
+%    \centering
+%\end{frame}
+%%-------------------------
+%%-------------------------
+%\begin{frame}
+%    \frametitle{}
+%    \centering
+%\end{frame}
+%%-------------------------
+%%-------------------------
+%\begin{frame}
+%    \frametitle{}
+%    \centering
+%\end{frame}
+%%-------------------------
+%%-------------------------
+%\begin{frame}
+%    \frametitle{}
+%    \centering
+%\end{frame}
+%%-------------------------
+%%-------------------------
+%\begin{frame}
+%    \frametitle{}
+%    \centering
+%\end{frame}
+%%-------------------------
+%%-------------------------
+%\begin{frame}
+%    \frametitle{}
+%    \centering
+%\end{frame}
+%%-------------------------
+%%-------------------------
+%\begin{frame}
+%    \frametitle{}
+%    \centering
+%\end{frame}
+%%-------------------------
+%%-------------------------
+%\begin{frame}
+%    \frametitle{}
+%    \centering
+%\end{frame}
+%%-------------------------
+%%-------------------------
+%\begin{frame}
+%    \frametitle{}
+%    \centering
+%\end{frame}
+%%-------------------------
+%%-------------------------
+%\begin{frame}
+%    \frametitle{}
+%    \centering
+%\end{frame}
+%%-------------------------
+%%-------------------------
+%\begin{frame}
+%    \frametitle{}
+%    \centering
+%\end{frame}
+%%-------------------------
+%%-------------------------
+%\begin{frame}
+%    \frametitle{}
+%    \centering
+%\end{frame}
+%%-------------------------
 \end{document}
