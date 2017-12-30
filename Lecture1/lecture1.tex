@@ -21,6 +21,8 @@
 %\usetheme{Warsaw}
 
 
+\usepackage{pgfpages}
+\setbeameroption{show notes on second screen=right}
 \setbeamerfont{title}{family=\rm}
 \usefonttheme{serif}
 %\setmainfont{Liberation Serif}
@@ -133,6 +135,17 @@
     \end{itemize}
 \end{frame}
 %--------------------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Adjacency matrix}
+    \centering
+    For a network with $N$ nodes, consider a $n\times n$ matrix ${\mathbf A}$
+
+$$A_{ij} = \begin{cases}1 &\quad \text{if the nodes $i$ and $j$ are connected}\\0 &\quad \text{otherwise}\end{cases}$$
+
+\note{For undirected networks, A is symmetric}
+\end{frame}
+%-------------------------
 %--------------------------------------
 \begin{frame}
     \frametitle{Complex networks}
