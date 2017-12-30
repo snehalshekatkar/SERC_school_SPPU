@@ -259,7 +259,88 @@ Minimization with constraints $\Rightarrow$ Lagrange multipliers
 %In matrix notation,
     \pause
 $${\mathbf L}{\mathbf s} = \lambda {\mathbf s} + \mu {\mathbf 1} = \lambda \left({\mathbf s} + \frac{\mu}{\lambda}{\mathbf 1}\right)$$
-$${\mathbf L}\left({\mathbf s} + \frac{\mu}{\lambda}\right) = \lambda \left({\mathbf s} + \frac{\mu}{\lambda}{\mathbf 1}\right)$$
+    $${\mathbf L}\left({\mathbf s} + \frac{\mu}{\lambda}{\mathbf 1}\right) = \lambda \left({\mathbf s} + \frac{\mu}{\lambda}{\mathbf 1}\right)$$
+    \centering
+    ${\mathbf 1}$ is an eigenvector of the Laplacian with eigenvalue $0$
+    $${\mathbf L}{\mathbf x}=\lambda {\mathbf x}$$
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Spectral partitioning}
+    \centering
+    ${\mathbf x}$ is an eigenvector of the Laplacian with eigenvalue $\lambda$ 
+
+    \vspace{1em}
+    Which eigenvector to choose?
+
+    \vspace{1em}
+    ${\mathbf x}$ cannot be the eigenvector ${\mathbf 1} = \begin{pmatrix}1\\1\\.\\.\\1\end{pmatrix}$
+
+        $${\mathbf 1}^T{\mathbf x} = {\mathbf 1}\left({\mathbf s} + \frac{\mu}{\lambda}{\mathbf 1}\right) = (n_1-n_2) + \frac{\mu}{\lambda}n = 0$$
+        %$\therefore$ ${\mathbf x}$ is orthogonal to ${\mathbf 1}$
+        \note{x is orthogonal to 1\\ . \\x is eigenvector but not 1}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Spectral partitioning}
+    \centering
+    Which eigenvector to choose?
+    $$R = \frac{1}{4}{\mathbf s}^T{\mathbf L}{\mathbf s} = \frac{1}{4}{\mathbf x}^T{\mathbf x} = \frac{n_1n_2}{n}\lambda$$
+    Choose the eigenvector with smallest possible eigenvalue!
+
+    \vspace{1em}
+    Eigenvalues of the Laplacian are non-negative and smallest is always $0$
+
+    \vspace{1em}
+    ${\mathbf v}_1 = {\mathbf 1}$ is ruled out already. So choose ${\mathbf v}_2$ with the smallest positive eigenvalue
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Spectral partitioning}
+    \centering
+    $${\mathbf s} = x + \frac{n_1-n_2}{n}{\mathbf 1}$$
+    {\bf OR}
+    $$s_i = x_i + \frac{n_1-n_2}{n}$$
+
+    \vspace{2em}
+    But $s_i$ can be only $\pm 1$
+
+    \vspace{2em}
+    Thus, we want ${\mathbf x}$ to be as close as possible to ${\mathbf s}$
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Spectral partitioning}
+    Maximize:
+    \centering
+    $${\mathbf s}^T\left({\mathbf x + \frac{n_1-n_2}{n}{\mathbf 1}}\right) = \sum\limits_is_i\left(x_i + \frac{n_1-n_2}{n}\right)$$
+
+    Equivalently, maximize:
+    $$\sum\limits_is_ix_i$$
+
+    Simply put the $n_1$ vertices with most positive elements in group $1$ and the rest ones in group $2$
+
+    \vspace{1em}
+    Group assignments are arbitrary
+    \note{Choose the assignment with the smaller cut size}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Spectral partitioning}
+    \centering
+
+    \begin{itemize}
+        \setlength\itemsep{1em}
+        \item{Calculate ${\mathbf v}_2$ of the Laplacian}
+        \item{Put vertices corresponding to largest $n_1$ elements in group $1$ and others in group $2$. Calculate the cut size}
+        \item{Put vertices corresponding to smallest $n_1$ elements in group $1$ and others in group $2$. Calculate the cut size}
+        \item{Choose the division with the smallest cut size among the two}
+    \end{itemize}
 \end{frame}
 %-------------------------
 %-------------------------

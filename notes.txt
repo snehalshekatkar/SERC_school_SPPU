@@ -58,3 +58,4 @@ References:
 
 Study:
 - Lagrange multipliers
+- Differentiating wrt s_i
