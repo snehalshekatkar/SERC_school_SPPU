@@ -39,6 +39,7 @@ Second lecture
 * Graph partitioning vs community detection
 * Spectral partitioning
 * Newman-Girvan algorithm
+* Problems with modularity: degeneracy, resolution limit
 * Modern view of communities and statistical inference
 
 
@@ -53,3 +54,7 @@ ________________________________________________________________________________
 
 
 References:
+
+
+Study:
+- Lagrange multipliers

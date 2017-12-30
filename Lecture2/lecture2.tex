@@ -7,6 +7,8 @@
 \usepackage{listings}
 \usepackage{pgfpages}
 \usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{ragged2e}
 %\setbeameroption{show notes}
 \setbeameroption{show notes on second screen=right}
 \graphicspath{{Figures/}}
@@ -64,7 +66,7 @@
                 \item{Webpages under the same domain (e.g. Wikipedia)}
             \end{itemize}
     }
-        \item{{\bf Biological network}:
+        \item{{\bf Biological networks}:
             \begin{itemize}
                 \item{Proteins with similar roles in protein interaction networks}
                 \item{Chemicals together taking part in chemical reactions in metabolic networks}
@@ -180,7 +182,7 @@
 %-------------------------
 %-------------------------
 \begin{frame}
-    \frametitle{Spectral paritioning}
+    \frametitle{Spectral partitioning}
     \centering
 
     \begin{itemize}
@@ -193,8 +195,77 @@
 %-------------------------
 %-------------------------
 \begin{frame}
-    \frametitle{Community detection is harder!}
+    \frametitle{Spectral partitioning}
+Cut size:
+$$R = \frac{1}{2}\sum\limits_{\substack{i, j \ \text{in} \\ \text{different} \\ \text{groups}}}A_{ij}$$
+
+Define
+$$s_i = \begin{cases}+1 &\quad\text{if vertex } i\ \text{belongs to group} \ 1 \\-1 &\quad\text{if vertex } i\ \text{belongs to group} \ 2\end{cases}$$
+
+Then
+$$\frac{1}{2}(1-s_is_j) = \begin{cases}1 &\quad \text{if} \ i\ \text{and} \ j\ \text{are in different groups,}\\0 &\quad \text{if} \ i\ \text{and} \ j\ \text{are in the same group}\end{cases}$$
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Spectral partitioning}
+    $$R = \frac{1}{4}\sum\limits_{ij}A_{ij}(1-s_is_j)$$
+
+First term,
+$$\sum\limits_{ij}A_{ij} = \sum\limits_ik_i = \sum\limits_ik_is_i^2=\sum\limits_{ij}k_i\delta_{ij}s_is_j$$
+
+$$R = \frac{1}{4}\sum\limits_{ij}(k_i\delta_{ij}-A_{ij})s_is_j = \frac{1}{4}\sum\limits_{ij}L_{ij}s_is_j$$
+
+$$R = \frac{1}{4}{\mathbf s}^T{\mathbf L}{\mathbf s}$$
+\note{L is so imp that we have a name for it! Laplacian\\ .\\ s is a columnvector\\ . \\L: structure, s: division\\ . \\ find s that minimizes R\\.\\Problem is hard, s takes only integer values\\.}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Relaxation method}
+\begin{columns}
+    \column{0.6\linewidth}
+    \centering
+%$$R = \frac{1}{4}{\bf s}^T{\bf L}{\bf s}$$
+%\vspace{0.5em}
+
+{\bf Two constraints}:
+\vspace{1em}
     \begin{itemize}
+    \setlength\itemsep{1em}
+        %\item{$s_i$ can be only $\pm 1$ $\Rightarrow$ Length of ${\bf s}$ is $\sqrt{n}$}
+        \item{$s_i$ can be only $\pm 1$}
+        \item{$\sum\limits_{i}s_i=n_1-n_2 \Rightarrow {\mathbf 1}^T{\mathbf s} = n_1-n_2$}
+    \end{itemize}
+
+\centering
+\vspace{2em}
+Relax the first constraint
+\column{0.4\linewidth}
+\includegraphics[width=\columnwidth,trim=100 400 200 200, clip=true]{hypercube.pdf}
+\end{columns}
+    \note{hypercube\\.\\continuous s, differentiate}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Spectral partitioning}
+    \centering
+Minimization with constraints $\Rightarrow$ Lagrange multipliers
+    $$\frac{\partial}{\partial s_i}\left[\sum\limits_{jk}L_{jk}s_js_k + \lambda\left(n-\sum\limits_{j}s_j^2\right) + 2\mu\left((n_1-n_2)-\sum\limits_js_j\right)\right] = 0$$
+    \pause
+    $$\sum\limits_jL_{ij}s_j = \lambda s_i + \mu$$
+\justifying
+%In matrix notation,
+    \pause
+$${\mathbf L}{\mathbf s} = \lambda {\mathbf s} + \mu {\mathbf 1} = \lambda \left({\mathbf s} + \frac{\mu}{\lambda}{\mathbf 1}\right)$$
+$${\mathbf L}\left({\mathbf s} + \frac{\mu}{\lambda}\right) = \lambda \left({\mathbf s} + \frac{\mu}{\lambda}{\mathbf 1}\right)$$
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Community detection is harder!}
+  \begin{itemize}
         \setlength\itemsep{2em}
         \item{{\bf Graph partitioning}
         \begin{itemize}
