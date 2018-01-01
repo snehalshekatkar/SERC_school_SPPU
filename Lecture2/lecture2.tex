@@ -502,7 +502,7 @@ $${\mathbf L}{\mathbf s} = \lambda {\mathbf s} + \mu {\mathbf 1} = \lambda \left
 \begin{frame}
     %\frametitle{Application to Zachry karate club}
     \centering
-    \note{Does someone know this network?}
+    \note{Does somebody know this network?}
     \includegraphics[width=0.8\columnwidth]{karate_raw.pdf}
 \end{frame}
 %-------------------------
@@ -533,6 +533,86 @@ $${\mathbf L}{\mathbf s} = \lambda {\mathbf s} + \mu {\mathbf 1} = \lambda \left
         Division by KLN algorithm
         \includegraphics[width=\columnwidth]{karate_kln.pdf}
     \end{columns}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Spectral modularity maximization}
+\note{spectral partitioning: cut size\\.\\analogous algorithm exists}
+    \centering
+    $$Q = \frac{1}{2m}\sum\limits_{ij}\left(A_{ij}-\frac{k_ik_j}{2m}\right) = \frac{1}{2m}\sum\limits_{ij}B_{ij}\delta(c_i,c_j)$$
+
+    \vspace{2em}
+    \justifying
+    Note that:
+    $$\sum\limits_{j}B_{j} = \sum\limits_jA_{ij}-\frac{k_i}{2m}\sum\limits_{j}k_j = k_i-\frac{k_i}{2m}2m = 0$$
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Spectral modularity maximization}
+    \centering
+$$s_i = \begin{cases}+1&\quad \text{if vertex $i$ belongs to group $1$}\\-1 &\quad \text{if vertex $i$ belongs to group $2$}\end{cases}$$
+\pause
+    \vspace{1em}
+$$\frac{1}{2}(1+s_is_j) = \begin{cases}1&\quad\text{if $i$ and $j$ belong to the same group}\\0&\quad\text{Otherwise}\end{cases}$$
+\pause
+    \vspace{1em}
+$$B = \frac{1}{2m}\sum\limits_{ij}B_{ij}\delta(c_i,c_j) = \frac{1}{4m}\sum\limits_{ij}B_{ij}(1 + s_is_j) = \frac{1}{4m}\sum\limits_{ij}B_{ij}s_is_j$$
+    \vspace{1em}
+$$Q = \frac{1}{4m}{\mathbf s}^T{\mathbf B}{\mathbf s}$$
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Spectral modularity maximization}
+Relaxation method
+    \begin{columns}
+        \column{0.6\linewidth}
+        \centering
+        \begin{itemize}
+        \setlength\itemsep{1em}
+            \item{Numbers of elements with values $+1$ and $-1$ are not fixed}
+            \item{Only constraint: ${\mathbf s}^T{\mathbf s} = \sum\limits_is_i^2 = n$}
+        \end{itemize}
+
+        $$\frac{\partial}{\partial s_i}\left[\sum\limits_{ij}B_{jk}s_js_k + \beta\left(n-\sum\limits_{j}s_j^2\right)\right] = 0$$
+        $$\sum\limits_jB_{ij}s_j=\beta s_i$$ 
+        $${\mathbf B}{\mathbf s} = \beta {\mathbf s}$$
+        \note{s is eigenvector of modularity matrix}
+        \column{0.5\linewidth}
+        \centering
+        \includegraphics[width=0.8\columnwidth, trim = 100 200 100 100, clip = true]{hypercube.pdf}
+
+    \end{columns}
+
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Spectral modularity maximization}
+    \centering
+$$Q = \frac{1}{4m}\beta{\mathbf s}^T{\mathbf B}{\mathbf s} = \frac{1}{4m}\beta {\mathbf s}^T{\mathbf s} = \frac{n}{4m}\beta$$
+
+Thus, choose ${\mathbf s}$ to be the eigenvector ${\mathbf u_1}$ corresponding to the largest eigenvalue of the modularity matrix\\
+
+Maximize:
+$${\mathbf s}^T{\mathbf u}_1 = \sum\limits_is_iu_{1i}$$
+
+Maximum is achieved when each term is non-negative $\Rightarrow$ Use signs of $u_{1i}$!
+
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Spectral modularity maximization}
+    \centering
+    \begin{itemize}
+    \setlength\itemsep{1em}
+        \item{Calculate the modularity matrix}
+        \item{Calculate its eigenvector corresponding to the largest eigenvalue}
+        \item{Assign nodes to communities based on the signs of elements}
+    \end{itemize}
 \end{frame}
 %-------------------------
 %-------------------------
@@ -577,6 +657,132 @@ $${\mathbf L}{\mathbf s} = \lambda {\mathbf s} + \mu {\mathbf 1} = \lambda \left
         \item{Recalculate betweenness for all edges}
         \item{Repeat}
     \end{itemize}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Girvan-Newman algorithm}
+    \centering
+    \includegraphics[width=0.8\columnwidth]{gn0.pdf}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Girvan-Newman algorithm}
+    \centering
+    \includegraphics[width=0.8\columnwidth]{gn1.pdf}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Girvan-Newman algorithm}
+    \centering
+    \includegraphics[width=0.8\columnwidth]{gn2.pdf}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Girvan-Newman algorithm}
+    \centering
+    \includegraphics[width=0.8\columnwidth]{gn3.pdf}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Girvan-Newman algorithm}
+    \centering
+    \includegraphics[width=0.8\columnwidth]{gn4.pdf}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Girvan-Newman algorithm}
+    \centering
+    \includegraphics[width=0.8\columnwidth]{gn5.pdf}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Girvan-Newman algorithm}
+    \centering
+    \includegraphics[width=0.8\columnwidth]{gn6.pdf}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Girvan-Newman algorithm}
+    \centering
+    \includegraphics[width=0.8\columnwidth]{gn7.pdf}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Girvan-Newman algorithm}
+    \centering
+    \includegraphics[width=0.8\columnwidth]{gn8.pdf}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Girvan-Newman algorithm}
+    \centering
+    \includegraphics[width=0.8\columnwidth]{gn9.pdf}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Girvan-Newman algorithm}
+    \centering
+    \includegraphics[width=0.8\columnwidth]{gn10.pdf}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Girvan-Newman algorithm}
+    \centering
+    \includegraphics[width=0.8\columnwidth]{gn11.pdf}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Girvan-Newman algorithm}
+    \centering
+    \includegraphics[width=0.8\columnwidth]{gn12.pdf}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Girvan-Newman algorithm}
+    \centering
+    \includegraphics[width=0.8\columnwidth]{gn13.pdf}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Girvan-Newman algorithm}
+    \centering
+    \includegraphics[width=0.8\columnwidth]{gn14.pdf}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Girvan-Newman algorithm}
+    \centering
+    \includegraphics[width=0.8\columnwidth]{gn15.pdf}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Girvan-Newman algorithm}
+    \centering
+    \includegraphics[width=0.8\columnwidth]{gn16.pdf}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Girvan-Newman algorithm}
+    \centering
+    \includegraphics[width=0.8\columnwidth]{gn17.pdf}
 \end{frame}
 %-------------------------
 %%-------------------------
