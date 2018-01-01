@@ -476,6 +476,67 @@ $${\mathbf L}{\mathbf s} = \lambda {\mathbf s} + \mu {\mathbf 1} = \lambda \left
 %-------------------------
 %-------------------------
 \begin{frame}
+    \frametitle{Kernighan-Lin-Newman algorithm}
+    \centering
+    \note{Variation of KL algorithm\\.\\Sizes of the groups are not fixed\\.\\No swapping}
+
+    \begin{itemize}
+        \setlength\itemsep{1em}
+        \item{Start with a random division of the nodes}
+            \pause
+        \item{Change in modularity for shifting each vertex to the other group}
+            \pause
+        \item{Choose vertex whose shift makes maximum modularity change}
+            \pause
+        \item{If no such vertex exists, choose the one resulting in the least decrease in the modularity}
+            \pause
+        \item{Repeat so that the vertex once moved is not moved again}
+            \pause
+        \item{Select a state with the highest modularity}
+            \pause
+        \item{Repeat the whole process starting with this state till the modularity stabilizes}
+    \end{itemize}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    %\frametitle{Application to Zachry karate club}
+    \centering
+    \note{Does someone know this network?}
+    \includegraphics[width=0.8\columnwidth]{karate_raw.pdf}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Zachry karate club network}
+    \note{}
+    \begin{columns}
+        \column{0.6\linewidth}
+    \centering
+    \includegraphics[width=0.8\columnwidth]{karate_raw.pdf}
+        \column{0.6\linewidth}
+        \includegraphics[width=\columnwidth]{karate_actual.pdf}
+    \end{columns}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Application to Zachry karate club}
+    \begin{columns}
+        \column{0.6\linewidth}
+        \centering
+        Actual division
+        \includegraphics[width=\columnwidth]{karate_actual.pdf}
+        \pause
+        \column{0.6\linewidth}
+        \centering
+        Division by KLN algorithm
+        \includegraphics[width=\columnwidth]{karate_kln.pdf}
+    \end{columns}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
     \frametitle{Newman-Girvan algorithm}
     \centering
     
