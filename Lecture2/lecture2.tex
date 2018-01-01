@@ -170,6 +170,11 @@
 %-------------------------
 \begin{frame}
     \frametitle{Kernighan-Lin algorithm}
+    \begin{columns}
+    \column{0.6\linewidth}
+    \centering
+    \includegraphics[width=0.8\columnwidth]{local_minima.pdf}
+    \column{0.6\linewidth}
     \begin{itemize}
         \setlength\itemsep{1em}
         \item{Go through all the states and select the one with the least cut size}
@@ -178,6 +183,7 @@
             \note<1>{Group sizes remain constant}
         \item{Starting with many random initial conditions is better}
     \end{itemize}
+    \end{columns}
 \end{frame}
 %-------------------------
 %-------------------------
@@ -407,7 +413,7 @@ $${\mathbf L}{\mathbf s} = \lambda {\mathbf s} + \mu {\mathbf 1} = \lambda \left
             
     \begin{itemize}
         \setlength\itemsep{0.5em}
-        \item{\textcolor{brown}{Girvan-Newman algorithm}}
+        \item{\textcolor{red}{Girvan-Newman algorithm}}
         \item{Radichhi algorithm}
     \end{itemize}
             
@@ -418,8 +424,8 @@ $${\mathbf L}{\mathbf s} = \lambda {\mathbf s} + \mu {\mathbf 1} = \lambda \left
     \begin{itemize}
         \setlength\itemsep{1em}
         \item{Label propagation}
-        \item{\textcolor{brown}{Spectral partitioning}}
-        \item{\textcolor{brown}{Kernighan-Lin-Newman algorithm}}
+        \item{\textcolor{red}{Spectral partitioning}}
+        \item{\textcolor{red}{Kernighan-Lin-Newman algorithm}}
     \end{itemize}
 
             }
