@@ -18,13 +18,21 @@ name = g.add_edge_list(edges, hashed = True)
 pos = gt.sfdp_layout(g)
 
 ind = 0
+bt = gt.betweenness(g)[1]
+max_val = max([bt[e] for e in g.edges()])
+for e in g.edges():
+    bt[e] = 10 * bt[e]/max_val
+    
+print(max([bt[e] for e in g.edges()]))
 gt.graph_draw(g, pos = pos, vertex_shape = 'double_circle', vertex_text = name, vertex_font_size = 8, vertex_text_position = -2, vertex_fill_color = '#729fcf', vertex_pen_width = 3, edge_pen_width = bt, output = 'gn{}.pdf'.format(ind))
 
 for ind in range(g.num_edges()):
 
     bt = gt.betweenness(g)[1]
+    max_val = max([bt[e] for e in g.edges()])
     for e in g.edges():
-        bt[e] = 20 * bt[e]
+        bt[e] = 10 * bt[e]/max_val
+    print(max([bt[e] for e in g.edges()]))
 
     # Calculate edge betweenness
     ebt = gt.betweenness(g)[1]

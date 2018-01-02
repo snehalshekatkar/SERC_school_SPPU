@@ -617,6 +617,20 @@ Maximum is achieved when each term is non-negative $\Rightarrow$ Use signs of $u
 %-------------------------
 %-------------------------
 \begin{frame}
+    \frametitle{Application to karate club network}
+    \centering
+    \includegraphics[width=0.8\columnwidth]{karate_actual.pdf}
+\end{frame}
+%-------------------------
+%-------------------------
+%\begin{frame}
+%    \frametitle{Application to a social network of bottlenose dolphin}
+%    \centering
+%    \includegraphics[width=0.8\columnwidth]{dolphins.pdf}
+%\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
     \frametitle{Newman-Girvan algorithm}
     \centering
     
@@ -633,15 +647,20 @@ Maximum is achieved when each term is non-negative $\Rightarrow$ Use signs of $u
 %-------------------------
 \begin{frame}
     \frametitle{Edge betweenness}
+    \begin{columns}
+        \column{0.6\linewidth}
     \centering
-    \vspace{2em}
+    %\vspace{2em}
         \begin{itemize}
         \setlength\itemsep{1em}
             \item{Path between two nodes}
             \item{Shortest path between two nodes}
             \item{Number of shortest paths that go through a given edge}
         \end{itemize}
-    \includegraphics[width=0.7\columnwidth,trim=0 0 0 130,clip=true]{msc3.pdf}
+    %\includegraphics[width=0.7\columnwidth,trim=0 0 0 130,clip=true]{msc3.pdf}
+        \column{0.6\linewidth}
+    \includegraphics[width=0.9\columnwidth,trim=0 0 0 0]{gn0.pdf}
+    \end{columns}
 
 \end{frame}
 %-------------------------
@@ -785,178 +804,36 @@ Maximum is achieved when each term is non-negative $\Rightarrow$ Use signs of $u
     \includegraphics[width=0.8\columnwidth]{gn17.pdf}
 \end{frame}
 %-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Problems with traditional community detection algorithms}
+    \centering
+
+    \begin{itemize}
+        \setlength\itemsep{1em}
+        \item{Degeneracy}
+        \item{Resolution limit}
+        \item{Structure vs Noise}
+        \item{Prediction}
+    \end{itemize}
+\end{frame}
 %%-------------------------
-%\begin{frame}
-%    \frametitle{}
-%    \centering
-%\end{frame}
-%%-------------------------
-%%-------------------------
-%\begin{frame}
-%    \frametitle{}
-%    \centering
-%\end{frame}
-%%-------------------------
-%%-------------------------
-%\begin{frame}
-%    \frametitle{}
-%    \centering
-%\end{frame}
-%%-------------------------
-%%-------------------------
-%\begin{frame}
-%    \frametitle{}
-%    \centering
-%\end{frame}
-%%-------------------------
-%%-------------------------
-%\begin{frame}
-%    \frametitle{}
-%    \centering
-%\end{frame}
-%%-------------------------
-%%-------------------------
-%\begin{frame}
-%    \frametitle{}
-%    \centering
-%\end{frame}
-%%-------------------------
-%%-------------------------
-%\begin{frame}
-%    \frametitle{}
-%    \centering
-%\end{frame}
-%%-------------------------
-%%-------------------------
-%\begin{frame}
-%    \frametitle{}
-%    \centering
-%\end{frame}
-%%-------------------------
-%%-------------------------
-%\begin{frame}
-%    \frametitle{}
-%    \centering
-%\end{frame}
-%%-------------------------
-%%-------------------------
-%\begin{frame}
-%    \frametitle{}
-%    \centering
-%\end{frame}
-%%-------------------------
-%%-------------------------
-%\begin{frame}
-%    \frametitle{}
-%    \centering
-%\end{frame}
-%%-------------------------
-%%-------------------------
-%\begin{frame}
-%    \frametitle{}
-%    \centering
-%\end{frame}
-%%-------------------------
-%%-------------------------
-%\begin{frame}
-%    \frametitle{}
-%    \centering
-%\end{frame}
-%%-------------------------
-%%-------------------------
-%\begin{frame}
-%    \frametitle{}
-%    \centering
-%\end{frame}
-%%-------------------------
-%%-------------------------
-%\begin{frame}
-%    \frametitle{}
-%    \centering
-%\end{frame}
-%%-------------------------
-%%-------------------------
-%\begin{frame}
-%    \frametitle{}
-%    \centering
-%\end{frame}
-%%-------------------------
-%%-------------------------
-%\begin{frame}
-%    \frametitle{}
-%    \centering
-%\end{frame}
-%%-------------------------
-%%-------------------------
-%\begin{frame}
-%    \frametitle{}
-%    \centering
-%\end{frame}
-%%-------------------------
-%%-------------------------
-%\begin{frame}
-%    \frametitle{}
-%    \centering
-%\end{frame}
-%%-------------------------
-%%-------------------------
-%\begin{frame}
-%    \frametitle{}
-%    \centering
-%\end{frame}
-%%-------------------------
-%%-------------------------
-%\begin{frame}
-%    \frametitle{}
-%    \centering
-%\end{frame}
-%%-------------------------
-%%-------------------------
-%\begin{frame}
-%    \frametitle{}
-%    \centering
-%\end{frame}
-%%-------------------------
-%%-------------------------
-%\begin{frame}
-%    \frametitle{}
-%    \centering
-%\end{frame}
-%%-------------------------
-%%-------------------------
-%\begin{frame}
-%    \frametitle{}
-%    \centering
-%\end{frame}
-%%-------------------------
-%%-------------------------
-%\begin{frame}
-%    \frametitle{}
-%    \centering
-%\end{frame}
-%%-------------------------
-%%-------------------------
-%\begin{frame}
-%    \frametitle{}
-%    \centering
-%\end{frame}
-%%-------------------------
-%%-------------------------
-%\begin{frame}
-%    \frametitle{}
-%    \centering
-%\end{frame}
-%%-------------------------
-%%-------------------------
-%\begin{frame}
-%    \frametitle{}
-%    \centering
-%\end{frame}
-%%-------------------------
-%%-------------------------
-%\begin{frame}
-%    \frametitle{}
-%    \centering
-%\end{frame}
-%%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Degeneracy}
+    \centering
+    \includegraphics[width = 0.8\columnwidth]{modularity_degeneracy.png}
+    \footnote{Good et al., Performance of modularity in practical contexts, PRE 81, 046106 (2010).}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Resolution limit}
+    $$Q = \frac{1}{2m}\sum\limits_{ij}\left(A_{ij}-\frac{k_ik_j}{2m}\right)\delta(c_i,c_j)$$
+    Contribution of a module $s$,
+
+    $$Q_s = \frac{1}{2m}\sum\limits_{ij}\left(A_{ij}-\frac{k_ik_j}{2m}\right)$$
+    \centering
+\end{frame}
+%-------------------------
 \end{document}
