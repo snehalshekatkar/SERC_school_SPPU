@@ -440,7 +440,18 @@ $${\mathbf L}{\mathbf s} = \lambda {\mathbf s} + \mu {\mathbf 1} = \lambda \left
     \setlength\itemsep{1em}
         \item{Bisecting a graph with $n$ nodes}
         \item{Group sizes are not fixed}
-        \item{Minimum cut size?}
+        \item{Minimum cut size?
+
+            \begin{itemize}
+            \setlength\itemsep{1em}
+                \item{Trivial partition}
+                \item{Needs ad hoc specification of sizes}
+            \end{itemize}
+
+
+
+}
+
             \note<1>{Empty group}
     \end{itemize}
     \note<2>{Different measure}
@@ -468,15 +479,34 @@ $${\mathbf L}{\mathbf s} = \lambda {\mathbf s} + \mu {\mathbf 1} = \lambda \left
             \pause
         \item{Look for divisions with high modularity}
             \note<4>{Heuristics are needed}
-            \pause
-        \item{Modularity maximization is hard}
     \end{itemize}
 
 \end{frame}
 %-------------------------
+%--------------------------------
+\begin{frame}
+\frametitle{Modularity}
+How to find the division which maximizes the modularity?
+\pause
+\vspace{10pt}
+\begin{itemize}
+\setlength\itemsep{1em}
+\item{Check the value of $Q$ for all possible divisions and choose the best one}
+\pause
+\item{Consider, $N = 100$, $n_1 = n_2 = 50$}
+\pause
+\item{Total possible divisions = $^{100}C_{50} > 10^{29}$}
+\pause
+\item{With a fast computer which checks $100$ billion divisions per second: $3 \times 10^{10}$ years!}
+\pause
+\item{Clever heuristics are required}
+\end{itemize}
+\end{frame}
+%--------------------------------
 %-------------------------
 \begin{frame}
     \frametitle{Kernighan-Lin-Newman algorithm}
+\pause
     \centering
     \note{Variation of KL algorithm\\.\\Sizes of the groups are not fixed\\.\\No swapping}
 
@@ -620,6 +650,22 @@ Maximum is achieved when each term is non-negative $\Rightarrow$ Use signs of $u
     \frametitle{Application to karate club network}
     \centering
     \includegraphics[width=0.8\columnwidth]{karate_actual.pdf}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Bottlenose dolphins}
+    \centering
+    \includegraphics[width=\columnwidth, trim = 0 120 0 100, clip = true]{dolphins.pdf}
+\footnote{\footnotesize Lusseau D, Schneider K, Boisseau OJ, Haase P, Slooten E, Dawson SM (2003) Behav Ecol Sociobiol 54:396–405}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Bottlenose dolphins}
+    \centering
+    \includegraphics[width=\columnwidth, trim = 0 120 0 100, clip = true]{dolphins_communities.pdf}
+\footnote{\footnotesize Lusseau D, Schneider K, Boisseau OJ, Haase P, Slooten E, Dawson SM (2003) Behav Ecol Sociobiol 54:396–405}
 \end{frame}
 %-------------------------
 %-------------------------
@@ -814,7 +860,7 @@ Maximum is achieved when each term is non-negative $\Rightarrow$ Use signs of $u
         \item{Degeneracy}
         \item{Resolution limit}
         \item{Structure vs Noise}
-        \item{Prediction}
+        %\item{Prediction}
     \end{itemize}
 \end{frame}
 %%-------------------------
@@ -829,11 +875,61 @@ Maximum is achieved when each term is non-negative $\Rightarrow$ Use signs of $u
 %-------------------------
 \begin{frame}
     \frametitle{Resolution limit}
-    $$Q = \frac{1}{2m}\sum\limits_{ij}\left(A_{ij}-\frac{k_ik_j}{2m}\right)\delta(c_i,c_j)$$
-    Contribution of a module $s$,
+    \begin{itemize}
+    \setlength\itemsep{1em}
+        \item{Maximizing the modularity can fail to resolve small sized modules}
+        \item{Modular structures like cliques can be hidden in the larger groups of nodes with higher modularity score}
+        \item{Peak of the modularity function may not coincide with divisions that identify such modular structures}
+    \end{itemize}
 
-    $$Q_s = \frac{1}{2m}\sum\limits_{ij}\left(A_{ij}-\frac{k_ik_j}{2m}\right)$$
+    $$Q = \frac{1}{2m}\sum\limits_{ij}\left(A_{ij}-\frac{k_ik_j}{2m}\right)\delta(c_i,c_j)$$
+    Contribution of the group $s$,
+    $$Q_s = \frac{1}{2m}\sum\limits_{ij}\left(A_{ij}-\frac{k_ik_j}{2m}\right)\delta(c_i, s)\delta(c_j, s) = \frac{e_s}{m}-\left(\frac{d_s}{2m}\right)^2$$
+
+\note{$e_s$: Number of links inside module $s$\\.\\$d_s$: sum of the degrees inside $s$}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Resolution limit}
+    %\centering
+    The group $s$ is a module whenever $Q_s > 0 \Rightarrow \frac{e_s}{m}>\left(\frac{d_s}{2m}\right)^2$
+
+    \vspace{2em} 
+    \justifying
+    Consider two modules $s_1$ and $s_2$ with $e_{s_1s_2}$ edges between them
+
+    The change in modularity if we merge these:
+    $$\triangle Q_{s_1s_2} = \frac{e_{s_1s_2}}{m}-2\left(\frac{d_{s_1}}{2m}\right)\left(\frac{d_{s_2}}{2m}\right)>0$$
+
+    whenever:
+
+    $$e_{s_1s_2} > \frac{d_{s_1}d_{s_2}}{2m}\rightarrow 0$$
+
+    Thus, modules would be merged even when the number of links $e_{s_1s_2}$ between them is small!
+\footnote{Fortunato, Barthelemy, Resolution limit in community detection, PNAS, (2006)}
+\note{High wavelength light}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Structure vs Noise}
     \centering
+    \includegraphics[width=\columnwidth]{three_adjacency.png}
+\footnote{Tiago Peixoto, Bayesian stochastic blockmodeling}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Conclusions}
+    \centering
+    \begin{itemize}
+    \setlength\itemsep{1em}
+        \item{Community structure is a fundamental property of networks}
+        \item{Community detection is an ill-defined problem}
+        \item{(Too) many algorithms exist}
+        \item{Problem of community detection is still an open problem!}
+    \end{itemize}
 \end{frame}
 %-------------------------
 \end{document}
