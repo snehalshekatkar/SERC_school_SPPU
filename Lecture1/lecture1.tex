@@ -21,7 +21,6 @@
 %\usepackage{Singapore}
 %\usetheme{Warsaw}
 
-
 \usepackage{pgfpages}
 \setbeameroption{show notes on second screen=right}
 \setbeamerfont{title}{family=\rm}
@@ -321,17 +320,70 @@ $$A_{ij} = \begin{cases}1 &\quad \text{if the nodes $i$ and $j$ are connected}\\
 \end{frame}
 %--------------------------------------
 %-------------------------
+%\begin{frame}
+%    \frametitle{Detecting and visualizing power-laws}
+%    \centering
+%    How do we know that a given distribution is a power-law?
+%    \begin{itemize}
+%    \setlength\itemsep{1em}
+%        \item{Plotting the distribution on a log-log scale}
+%    \end{itemize}
+%    \includegraphics[width=0.8\columnwidth]{lognormal.pdf}
+%    \note{lognormal}
+%\end{frame}
+%-------------------------
+%-------------------------
 \begin{frame}
     \frametitle{Detecting and visualizing power-laws}
     \centering
-
+    How do we know that a given distribution is a power-law?
     \begin{itemize}
-        \setlength\itemsep{1em}
-        \item{Plotting on a log-log scale}
-        \item{}
-        \item{}
-        \item{}
+    \setlength\itemsep{1em}
+        \item{Creating a log-log plot}
     \end{itemize}
+    \includegraphics[width=0.8\columnwidth]{deg_distri_global_airport_log.pdf}
+    \note{More imp question\\.\\log-log: objectively bad way}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Detecting and visualizing power-laws}
+    \centering
+    Power-law is tricky!
+    \includegraphics[width=0.8\columnwidth]{lognormal.pdf}
+    \note{lognormal}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Detecting and visualizing power-laws}
+    \centering
+    \begin{itemize}
+    \setlength\itemsep{1em}
+        \item{Logarthmic binning: next bin is fixed multiple wider than the previous one}
+        \item{Better but still noisy}
+    \end{itemize}
+
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=0.8\columnwidth]{deg_distri_global_airport_log_logbins.pdf}
+        \caption{\label{}}
+    \end{center}
+\end{figure}
+
+    
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Detecting and visualizing power-laws}
+    \centering
+    {\bf Cumulative distribution}
+    $$P(k) = \sum\limits_{k^{\prime} = k}^\infty p(k^{\prime})$$
+
+    $$P(k) = C\sum\limits_{k^{\prime} = k}^\infty {k^{\prime}}^{-\alpha} \approx C\int_k^\infty {k^{\prime}}^{-\alpha}dk^{\prime} = \frac{C}{\alpha-1}k^{-(\alpha-1)}$$
+\note{$\alpha > 1$ and power-law slowly decreases\\}
+    \note{Needs no binning!}
 \end{frame}
 %-------------------------
 %--------------------------------------
