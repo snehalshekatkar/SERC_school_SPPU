@@ -2,6 +2,7 @@
 \graphicspath{{Figures/}}
 
 \usepackage{amsmath, amssymb, graphicx, float}
+\usepackage{ragged2e}
 
 %\usepackage{AnnArbor}
 %\usetheme{Berkeley}
@@ -314,14 +315,32 @@ $$A_{ij} = \begin{cases}1 &\quad \text{if the nodes $i$ and $j$ are connected}\\
         \column{0.4\linewidth}
         \centering
         $$\ln p(k) = -\alpha \ln k + c$$ 
-        $$p(k) = Ck^{-\alpha}$$
+        $$p(k) = Ck^{-\alpha}\quad\forall \ k > k_{\text{min}}$$
 
     \end{columns}
 \end{frame}
 %--------------------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Detecting and visualizing power-laws}
+    \centering
+
+    \begin{itemize}
+        \setlength\itemsep{1em}
+        \item{Plotting on a log-log scale}
+        \item{}
+        \item{}
+        \item{}
+    \end{itemize}
+\end{frame}
+%-------------------------
 %--------------------------------------
 \begin{frame}
     \frametitle{Detecting and visualizing power-laws}
+    \centering
+    {\bf The global network of airports}
+    
+    \vspace{2em}
     \begin{columns}
     \column{0.35\linewidth}
         \centering
@@ -340,10 +359,36 @@ $$A_{ij} = \begin{cases}1 &\quad \text{if the nodes $i$ and $j$ are connected}\\
 %--------------------------------------
 %--------------------------------------
 \begin{frame}
-    \frametitle{}
+    \frametitle{Detecting and visualizing power-laws}
+    \centering
+    {\bf A portion of the internet \footnote{Taken from the website of Mark Newman}}
 
+    \vspace{2em}
+    \begin{columns}
+    \column{0.35\linewidth}
+        \centering
+        {\bf Log-log scale}
+        \includegraphics[width=\columnwidth]{internet_loglog_hist.pdf}
+    \column{0.35\linewidth}
+        \centering
+        {\bf Logarthmic bins}
+        \includegraphics[width=\columnwidth]{internet_loglog_logbin_hist.pdf}
+    \column{0.35\linewidth}
+        \centering
+        {\bf Cumulative }
+        \includegraphics[width=\columnwidth]{internet_loglog_logbin_cum_hist.pdf}
+    \end{columns}
+\end{frame}
+%--------------------------------------
+%--------------------------------------
+\begin{frame}
+    \frametitle{}
     Calculation of the scaling exponent
+    
+    \centering
     $$\alpha = 1 + \frac{N}{\left[\sum\limits_i\frac{k_i}{k_{\text{min}}-\frac{1}{2}}\right]}$$
+
+    \justifying
     Statistical error on $\alpha$
     $$\sigma = \frac{\alpha-1}{\sqrt{N}}$$
 \end{frame}
