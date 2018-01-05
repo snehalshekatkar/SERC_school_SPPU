@@ -6,42 +6,71 @@ import matplotlib.pyplot as plt
 plt.style.use('classic')
 plt.switch_backend('cairo')
 import graph_tool.all as gt
+from sklearn.cluster import KMeans
 
+'''Generate a graph'''
+p_in = 0.99
+p_out = 0.005
+alpha = 2.8
 
-''' Load a graph '''
-#g = gt.load_graph('coauthors.gml')
-#g = gt.collection.data['lesmis']
-#g = gt.collection.data['dolphins']
-#g = gt.collection.data['dolphins']
-#g = gt.collection.data['celegansneural']
-g = gt.collection.data['polbooks']
+# Define a function to assign the inter-block probabilities
+def edge_probs(s, r):
+        global p_in, p_out
+        if s == r:
+            return p_in
+        else:
+            return p_out
+
+# Define a function to generate degree values from a approximate power-law distribution
+def power_law_int():
+        # Specify the minimum degree value
+        k_min = 2
+        global alpha
+        return np.rint(k_min * (1-np.random.random())**(-1/(alpha-1)))
+
+# Specify the number of nodes, the number of blocks and their sizes
+N = 500
+num_blocks = 4
+block_sizes = [0.1, 0.15, 0.25, 0.5]
+
+# Generate the graph
+g, block = gt.random_graph(N, deg_sampler = power_law_int, directed = False, block_membership=np.random.choice([i for i in range(num_blocks)], size = N, p = block_sizes), edge_probs = edge_probs, model = 'blockmodel-degree', n_iter = 1000)
+
+#gt.graph_draw(g)
 
 '''Get the largest component'''
-g = gt.Graph(gt.GraphView(g, vfilt = gt.label_largest_component(g)), prune = True)
+#g = gt.Graph(gt.GraphView(g, vfilt = gt.label_largest_component(g)), prune = True)
+g = gt.GraphView(g, vfilt = gt.label_largest_component(g))
 
 ''' Generate a position for the vertices'''
-pos = gt.sfdp_layout(g)
+#pos = gt.sfdp_layout(g)
+pos = gt.sfdp_layout(g, C = 0.4) # Repel nodes with higher C value
+
+X = np.array([tuple(pos[v]) for v in g.vertices()])
 
 '''Detect communities'''
-state = gt.minimize_blockmodel_dl(g, deg_corr = True)
+#state = gt.minimize_blockmodel_dl(g, deg_corr = True, B_max = 4, B_min = 4)
 
-block = state.get_blocks()
-group = [block[v] for v in g.vertices()]
+#block = state.get_blocks()
+'''Use k-means clustering to remove overlaps'''
+kmeans = KMeans(n_clusters = 4, random_state = 0).fit(X)
+group = kmeans.predict(X)
+#group = [block[v] for v in g.vertices()]
+
+for v in g.vertices():
+    block[v] = group[int(v)]
+
 print(group)
 
-colors = ['red', 'darkgreen', 'darkorange', 'brown', 'aliceblue', 'cyan', 'magenta', 'yellow', 'darkmagenta']
-#colors = ['red', 'green', 'violet', 'cyan', 'blue', 'magenta']
+colors = ['red', 'darkgreen', 'darkorange', 'purple', 'brown', 'aliceblue', 'cyan', 'magenta', 'yellow', 'darkmagenta']
 
 '''Draw loops around communities'''
 fig, ax = plt.subplots()
 color = g.new_vertex_property('string')
 for v in g.vertices():
     color[v] = colors[block[v]]
-    print("beta", block[v], colors[block[v]])
 
 gt.graph_draw(g, pos = pos, vertex_fill_color = color, vertex_color = 'white', mplfig = ax)
-
-
 
 for ind in range(max(group) + 1):
 
@@ -58,10 +87,10 @@ for ind in range(max(group) + 1):
 
         '''Add four extreme points in 4 directions''' 
 
-        new_point1 = points[np.argmax(points, axis = 0)[0]] + [2, 0]
-        new_point2 = points[np.argmax(points, axis = 0)[1]] + [0, 2]
-        new_point3 = points[np.argmin(points, axis = 0)[0]] - [2, 0]
-        new_point4 = points[np.argmin(points, axis = 0)[1]] - [0, 2]
+        new_point1 = points[np.argmax(points, axis = 0)[0]] + [3, 0]
+        new_point2 = points[np.argmax(points, axis = 0)[1]] + [0, 3]
+        new_point3 = points[np.argmin(points, axis = 0)[0]] - [3, 0]
+        new_point4 = points[np.argmin(points, axis = 0)[1]] - [0, 3]
 
         points = list(points)
         points.extend([new_point1, new_point2, new_point3, new_point4])
@@ -100,5 +129,6 @@ for ind in range(max(group) + 1):
         pass
 
 plt.axis('equal')
+plt.axis('off')
 plt.savefig('test.pdf', bboxinches = 'tight')
 
