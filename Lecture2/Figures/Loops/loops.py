@@ -8,71 +8,34 @@ plt.switch_backend('cairo')
 import graph_tool.all as gt
 from sklearn.cluster import KMeans
 
-'''Generate a graph'''
-p_in = 0.99
-p_out = 0.005
-alpha = 2.8
-
-# Define a function to assign the inter-block probabilities
-def edge_probs(s, r):
-        global p_in, p_out
-        if s == r:
-            return p_in
-        else:
-            return p_out
-
-# Define a function to generate degree values from a approximate power-law distribution
-def power_law_int():
-        # Specify the minimum degree value
-        k_min = 2
-        global alpha
-        return np.rint(k_min * (1-np.random.random())**(-1/(alpha-1)))
-
-# Specify the number of nodes, the number of blocks and their sizes
-N = 500
-num_blocks = 4
-block_sizes = [0.1, 0.15, 0.25, 0.5]
-
-# Generate the graph
-g, block = gt.random_graph(N, deg_sampler = power_law_int, directed = False, block_membership=np.random.choice([i for i in range(num_blocks)], size = N, p = block_sizes), edge_probs = edge_probs, model = 'blockmodel-degree', n_iter = 1000)
-
-#gt.graph_draw(g)
-
-'''Get the largest component'''
-#g = gt.Graph(gt.GraphView(g, vfilt = gt.label_largest_component(g)), prune = True)
-g = gt.GraphView(g, vfilt = gt.label_largest_component(g))
+'''Load the graph'''
+g = gt.load_graph('resolved_sbm.gt')
+block = g.vertex_properties['block']
 
 ''' Generate a position for the vertices'''
 #pos = gt.sfdp_layout(g)
 pos = gt.sfdp_layout(g, C = 0.4) # Repel nodes with higher C value
 
-X = np.array([tuple(pos[v]) for v in g.vertices()])
-
-'''Detect communities'''
-#state = gt.minimize_blockmodel_dl(g, deg_corr = True, B_max = 4, B_min = 4)
-
-#block = state.get_blocks()
-'''Use k-means clustering to remove overlaps'''
-kmeans = KMeans(n_clusters = 4, random_state = 0).fit(X)
-group = kmeans.predict(X)
-#group = [block[v] for v in g.vertices()]
-
-for v in g.vertices():
-    block[v] = group[int(v)]
-
-print(group)
+#X = np.array([tuple(pos[v]) for v in g.vertices()])
+#'''Use k-means clustering to remove overlaps'''
+#kmeans = KMeans(n_clusters = 4, random_state = 0).fit(X)
+#group = kmeans.predict(X)
+#for v in g.vertices():
+#    block[v] = group[int(v)]
 
 colors = ['red', 'darkgreen', 'darkorange', 'purple', 'brown', 'aliceblue', 'cyan', 'magenta', 'yellow', 'darkmagenta']
 
-'''Draw loops around communities'''
-fig, ax = plt.subplots()
 color = g.new_vertex_property('string')
 for v in g.vertices():
     color[v] = colors[block[v]]
 
+
+'''Draw loops around communities'''
+fig, ax = plt.subplots()
+
 gt.graph_draw(g, pos = pos, vertex_fill_color = color, vertex_color = 'white', mplfig = ax)
 
-for ind in range(max(group) + 1):
+for ind in range(max([block[v] for v in g.vertices()]) + 1):
 
     print(ind, colors[ind])
 
@@ -129,6 +92,17 @@ for ind in range(max(group) + 1):
         pass
 
 plt.axis('equal')
+#ax.set_aspect(1./ax.get_data_ratio())
 plt.axis('off')
 plt.savefig('test.pdf', bboxinches = 'tight')
+plt.close()
 
+fig, ax = plt.subplots()
+#gt.graph_draw(g, pos = pos, fit_view = True, vertex_fill_color = color, vertex_aspect = ax.get_data_ratio(), vertex_color = 'white', mplfig = ax)
+gt.graph_draw(g, pos = pos, fit_view = True, vertex_fill_color = 'b', vertex_aspect = ax.get_data_ratio(), vertex_color = 'white', mplfig = ax)
+#ax.axis('equal')
+ax.set_aspect(1./ax.get_data_ratio())
+ax.axis('off')
+plt.savefig('without_loops.pdf', bboxinches = 'tight')
+#plt.savefig('without_loops.pdf')
+plt.close()
