@@ -37,8 +37,11 @@ print(max(seq))
 #    val = 0
 #    for kprime in range()
 
-hist = np.histogram(seq, bins = max(seq), normed = True)[0]
+hist = np.histogram(seq, bins = [i for i in range(max(seq)+1)], density = True)[0]
+print(hist)
+print(sum(hist))
 cumul = np.cumsum(hist[::-1])[::-1]
+print(cumul)
 plt.plot(cumul, '-')
 plt.xscale('log')
 plt.yscale('log')

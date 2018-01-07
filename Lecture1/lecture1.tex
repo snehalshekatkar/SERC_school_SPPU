@@ -434,8 +434,10 @@ $$A_{ij} = \begin{cases}1 &\quad \text{if the nodes $i$ and $j$ are connected}\\
     \column{0.35\linewidth}
         \centering
         {\bf Cumulative }
-        \includegraphics[width=\columnwidth]{internet_loglog_logbin_cum_hist.pdf}
+        %\includegraphics[width=\columnwidth]{internet_loglog_logbin_cum_hist.pdf}
+        \includegraphics[width=\columnwidth]{internet_loglog_cum_hist2.pdf}
     \end{columns}
+    \note{Values are not independent in cumulative distribution\\.\\Don't do fitting!}
 \end{frame}
 %--------------------------------------
 %--------------------------------------
@@ -612,7 +614,59 @@ $$A_{ij} = \begin{cases}1 &\quad \text{if the nodes $i$ and $j$ are connected}\\
 %--------------------------------------
 %--------------------------------------
 \begin{frame}
-    \frametitle{}
+    \frametitle{Random graph models}
+    \centering
+
+    \begin{itemize}
+    \setlength\itemsep{1em}
+        \item{Generative models of networks}
+        \item{Probabilistic models capable of generating an observed data}
+        \item{Certain properties can be fixed for generative models}
+        \item{Better way to describe the structure of the networks}
+    \end{itemize}
+        
 \end{frame}
 %--------------------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{}
+    \begin{columns}
+    \column{0.6\linewidth} 
+    \centering
+    \includegraphics[width=\columnwidth]{anscombe.pdf} 
+    \column{0.6\linewidth} 
+    
+    \pause
+    \begin{itemize}
+    \setlength\itemsep{1em}
+        \item{Mean of $x = 9$}
+        \item{Variance of $x = 11$}
+        \item{Mean of $y = 7.5$}
+        \item{Variance of $y = 4.125$}
+        \item{Correlation = $0.816$}
+    \end{itemize}
+    \end{columns}
+    \centering
+    \vspace{2em}
+    {\bf Anscombe's quartet!}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Random graph models (RGMs)}
+    \centering
+    \begin{itemize}
+    \setlength\itemsep{1em}
+        \item{Erd{\H o}s-R{\'e}nyi model}
+        \item{Configuration model}
+        \item{Stochastic-block model}
+        \item{Degree-corrected SBM}
+        \item{Equitable random graphs}
+        \item{Hierarchical block models}
+        \item{Random graphs with expected degrees}
+        \item{Microcanonical SBM}
+        \item{Poisson SBM}
+    \end{itemize}
+\end{frame}
+%-------------------------
 \end{document}
