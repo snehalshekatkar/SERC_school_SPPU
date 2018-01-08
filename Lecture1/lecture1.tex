@@ -62,7 +62,6 @@
                 \item{Points connected by lines}
                 \item{Points: nodes/vertices/actors}
                 \item{Lines: links/edges/ties}
-                \item{Degree: number of neighbors}
             \end{itemize}
     \end{columns}
 \end{frame}
@@ -145,12 +144,25 @@
 %-------------------------
 \begin{frame}
     \frametitle{Adjacency matrix}
-    \centering
-    For a network with $N$ nodes, consider a $n\times n$ matrix ${\mathbf A}$
-
-$$A_{ij} = \begin{cases}1 &\quad \text{if the nodes $i$ and $j$ are connected}\\0 &\quad \text{otherwise}\end{cases}$$
+\vspace{20pt}
+\footnotesize
+Adjacency matrix: Binary matrix of size $N \times N$
+\begin{equation*}
+A_{ij} = \begin{cases}
+1 & \text{$i$ and $j$ connected}\\
+0 & \text{$i$ and $j$ not connected}
+\end{cases}
+\end{equation*}
+\vspace{10pt}
 
 \note{For undirected networks, A is symmetric}
+Degree of a vertex: 
+\begin{equation*}
+k_i = \sum\limits_{j}A_{ij} 
+\end{equation*}
+\begin{figure}
+\includegraphics[width=0.5\columnwidth, trim = 0 0 0 100]{network.pdf}
+\end{figure}
 \end{frame}
 %-------------------------
 %--------------------------------------
@@ -657,8 +669,8 @@ $$A_{ij} = \begin{cases}1 &\quad \text{if the nodes $i$ and $j$ are connected}\\
     \centering
     \begin{itemize}
     \setlength\itemsep{1em}
-        \item{Erd{\H o}s-R{\'e}nyi model}
-        \item{Configuration model}
+        \item{\textcolor{red}{Erd{\H o}s-R{\'e}nyi model}}
+        \item{\textcolor{red}{Configuration model}}
         \item{Stochastic-block model}
         \item{Degree-corrected SBM}
         \item{Equitable random graphs}
@@ -667,6 +679,29 @@ $$A_{ij} = \begin{cases}1 &\quad \text{if the nodes $i$ and $j$ are connected}\\
         \item{Microcanonical SBM}
         \item{Poisson SBM}
     \end{itemize}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Erd{\H o}s-R{\'e}nyi model (ER model)}
+    \begin{itemize}
+    \setlength\itemsep{1em}
+        \item{Fix $n$ and the average degree $c$}
+        \item{Connect every pair of nodes with a probability $\frac{c}{n}$}
+        \item{Number of graphs in the ensemble: $2^{\binom{n}{2}}$}
+        \item{ER model: Every member of the ensemble is equally likely}
+    \end{itemize}
+    \centering
+        \centering
+            \includegraphics[width=0.3\columnwidth]{er0.pdf}
+            \includegraphics[width=0.3\columnwidth]{er1.pdf}
+            \includegraphics[width=0.3\columnwidth]{er2.pdf}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{}
+    \centering
 \end{frame}
 %-------------------------
 \end{document}

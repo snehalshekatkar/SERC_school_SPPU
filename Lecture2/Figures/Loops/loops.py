@@ -94,7 +94,7 @@ for ind in range(max([block[v] for v in g.vertices()]) + 1):
 plt.axis('equal')
 #ax.set_aspect(1./ax.get_data_ratio())
 plt.axis('off')
-plt.savefig('test.pdf', bboxinches = 'tight')
+plt.savefig('with_loops.png', transparent = True, bboxinches = 'tight')
 plt.close()
 
 fig, ax = plt.subplots()
@@ -103,6 +103,6 @@ gt.graph_draw(g, pos = pos, fit_view = True, vertex_fill_color = 'b', vertex_asp
 #ax.axis('equal')
 ax.set_aspect(1./ax.get_data_ratio())
 ax.axis('off')
-plt.savefig('without_loops.pdf', bboxinches = 'tight')
+plt.savefig('without_loops.png', transparent = True, bboxinches = 'tight')
 #plt.savefig('without_loops.pdf')
 plt.close()
