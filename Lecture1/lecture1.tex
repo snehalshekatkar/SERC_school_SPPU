@@ -730,7 +730,7 @@ A_{ij} = \begin{cases}
     \end{itemize}
     \vspace{1em}
     $p_k = \binom{n-1}{k}p^k(1-p)^{n-1-k} = e^{-c}\frac{c^k}{k!}$
-    \note{Poisson distribution with mean $c$//.//Poisson random graph}
+    \note{Poisson distribution with mean $c$//.//Poisson random graph//.//$$\lim\limits_{n\to\infty}\left(1+\frac{a}{n}\right)^n = e^a$$}
 \end{frame}
 %-------------------------
 %-------------------------
@@ -762,20 +762,153 @@ A_{ij} = \begin{cases}
         \setlength\itemsep{1em}
         \item{Giant component: size is an extensive function of the network size}
         \item{Transition between the two extremes with $p$: gradual or sudden?}
-        \item{Size of the giant component as a function of $p$ can be calculated exactly}
+        \item{Size of the giant component as a function of $p$ can be calculated exactly in the limit}
     \end{itemize}
 \end{frame}
 %-------------------------
 %-------------------------
 \begin{frame}
+    \frametitle{The giant component}
+    %\centering
+    $u$ : Fraction of vertices not in the giant component\\
+
+    \note{$u = 1$ when no giant component}
+    \justifying
+    \vspace{1em}
+    When is a vertex $i$ not in the giant component?\\
+
+    \vspace{1em}
+    For any other vertex $j$:
+    \begin{enumerate}
+        \setlength\itemsep{1em}
+        \item{$i$ is not connected to $j$}
+        \item{$i$ is connected to $j$ but $j$ is not in the giant component}
+    \end{enumerate}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{The giant component}
+    %\centering
+    $u$ : Fraction of vertices not in the giant component\\
+
+    \note{$u = 1$ when no giant component}
+    \justifying
+    \vspace{1em}
+    When is a vertex $i$ not in the giant component?\\
+
+    \vspace{1em}
+    For any other vertex $j$:
+    \begin{enumerate}
+        \setlength\itemsep{1em}
+        \item{$i$ is not connected to $j$ \quad{\bf $\Rightarrow$ probability $=1-p$}}
+        \item{$i$ is connected to $j$ but $j$ is not in the giant component \\{\bf $\Rightarrow$ probability $=pu$}}
+    \end{enumerate}
+    \vspace{1em}
+    Thus, the probability of not being connected to the giant component through vertex $j$ is $(1-p+pu)$
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
     \frametitle{}
+    \justifying
+    $$u = (1-p+pu)^{n-1}$$
+    \vspace{0.5em}
+    $$u = \left(1-\frac{c}{n-1}+p\frac{c}{n-1}\right)^{n-1} = \left[1-\frac{c}{n-1}(1-u)\right]^{n-1}$$
+    \vspace{0.5em}
+    $$u = e^{-c(1-u)}$$
+    \vspace{0.5em}
+    Let $S$ be the size of the giant component
+    \vspace{0.5em}
+    $$\therefore 1-S = e^{-cS}$$
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Graphical solution for the giant component}
     \centering
+    \includegraphics[width=\columnwidth]{giant_component.pdf}
+    \note{One still has to prove that the giant component does exist}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Small components}
+
+    \note{
+    \begin{itemize}
+        \setlength\itemsep{1em}
+        \item{Since $S < 1$, there exist other components in the network}
+        \item{Average size of the small components is intensive function of $n$}
+    \end{itemize}
+}
+    \centering
+        \includegraphics[width=0.8\columnwidth]{er_large.pdf}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Small components}
+    \centering
+    {\bf Two giant components?}\\
+    \justifying
+    \vspace{2em}
+    %$S_1n$ and $S_2n$\\
+
+    Distinct pairs $(i, j)$ with $i$ in $S_1$ and $j$ in $S_2$ : $S_1n\times S_2n = S_1S_2n^2$\\
+    \vspace{2em}
+    Probability that there is no edge between the two:
+    $$q = (1-p)^{S_1S_2n^2} = \left(1-\frac{c}{n-1}\right)^{S_1S_2n^2} \sim e^{-cS_1S_2n}$$
+    \note{There must be non-giant components!}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Sizes of the small components}
+    \centering
+    $\pi_s$ : probability that a randomly chosen vertex belongs to component of size $s$\\
+    \vspace{2em}
+    $$\sum\limits_{s=1}^{\infty} = 1-S$$
+
+    \vspace{2em}
+    {\bf Small-components are trees!}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Tree graph}
+    \begin{columns}
+        \column{0.6\linewidth}
+    \centering
+        \includegraphics[width=0.8\columnwidth]{tree.pdf}
+        \column{0.6\linewidth}
+    \centering
+    \begin{itemize}
+        \setlength\itemsep{1em}
+        \item{A graph without loops}
+        \item{$n$ vertices and $n-1$ edges}
+        \item{Removal of any vertex or edge witll disconnect the graph}
+    \end{itemize}
+    
+    
+    \end{columns}
 \end{frame}
 %-------------------------
 %-------------------------
 \begin{frame}
     \frametitle{}
     \centering
+        \includegraphics[width=0.8\columnwidth]{er_large.pdf}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{}
+    \centering
+    $$\binom{s}{2}-(s-1) = \frac{1}{2}(s-1)(s-2)$$
+    The total number of extra edges:
+
+    $$\frac{1}{2}(s-1)(s-2)\frac{c}{n-1} \rightarrow 0$$
 \end{frame}
 %-------------------------
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.8)  8 JAN 2018 15:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.8)  9 JAN 2018 16:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2117,13 +2117,13 @@ pdfTeX warning (ext4): destination with the same identifier (name{Navigation55}
 
 \pgfpages@shipoutshipoutbox ...physicalpagesizes }
                                                   \endgroup 
-l.773 \end{frame}
+l.787 \end{frame}
                  pdfTeX warning (ext4): destination with the same identifier (n
 ame{page.55}) has been already used, duplicate ignored
 
 \pgfpages@shipoutshipoutbox ...physicalpagesizes }
                                                   \endgroup 
-l.773 \end{frame}
+l.787 \end{frame}
                  
 
 ] [57
@@ -2133,13 +2133,182 @@ pdfTeX warning (ext4): destination with the same identifier (name{Navigation56}
 
 \pgfpages@shipoutshipoutbox ...physicalpagesizes }
                                                   \endgroup 
-l.779 \end{frame}
+l.809 \end{frame}
                  pdfTeX warning (ext4): destination with the same identifier (n
 ame{page.56}) has been already used, duplicate ignored
 
 \pgfpages@shipoutshipoutbox ...physicalpagesizes }
                                                   \endgroup 
-l.779 \end{frame}
+l.809 \end{frame}
+                 
+
+] [58
+
+pdfTeX warning (ext4): destination with the same identifier (name{Navigation57}
+) has been already used, duplicate ignored
+
+\pgfpages@shipoutshipoutbox ...physicalpagesizes }
+                                                  \endgroup 
+l.824 \end{frame}
+                 pdfTeX warning (ext4): destination with the same identifier (n
+ame{page.57}) has been already used, duplicate ignored
+
+\pgfpages@shipoutshipoutbox ...physicalpagesizes }
+                                                  \endgroup 
+l.824 \end{frame}
+                 
+
+] <Figures/giant_component.pdf, id=1916, 578.16pt x 433.62pt>
+File: Figures/giant_component.pdf Graphic file (type pdf)
+
+<use Figures/giant_component.pdf>
+Package pdftex.def Info: Figures/giant_component.pdf used on input line 832.
+(pdftex.def)             Requested size: 307.28987pt x 230.46591pt.
+ [59
+
+pdfTeX warning (ext4): destination with the same identifier (name{Navigation58}
+) has been already used, duplicate ignored
+
+\pgfpages@shipoutshipoutbox ...physicalpagesizes }
+                                                  \endgroup 
+l.832 \end{frame}
+                 pdfTeX warning (ext4): destination with the same identifier (n
+ame{page.58}) has been already used, duplicate ignored
+
+\pgfpages@shipoutshipoutbox ...physicalpagesizes }
+                                                  \endgroup 
+l.832 \end{frame}
+                 
+
+] <Figures/er_large.pdf, id=1943, 602.25pt x 602.25pt>
+File: Figures/er_large.pdf Graphic file (type pdf)
+
+<use Figures/er_large.pdf>
+Package pdftex.def Info: Figures/er_large.pdf used on input line 847.
+(pdftex.def)             Requested size: 245.83282pt x 245.83054pt.
+
+Overfull \vbox (0.95738pt too high) detected at line 847
+ []
+
+[60
+
+pdfTeX warning (ext4): destination with the same identifier (name{Navigation59}
+) has been already used, duplicate ignored
+
+\pgfpages@shipoutshipoutbox ...physicalpagesizes }
+                                                  \endgroup 
+l.847 \end{frame}
+                 pdfTeX warning (ext4): destination with the same identifier (n
+ame{page.59}) has been already used, duplicate ignored
+
+\pgfpages@shipoutshipoutbox ...physicalpagesizes }
+                                                  \endgroup 
+l.847 \end{frame}
+                 
+
+ <./Figures/giant_component.pdf>]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 847.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 847.
+ [61
+
+pdfTeX warning (ext4): destination with the same identifier (name{Navigation60}
+) has been already used, duplicate ignored
+
+\pgfpages@shipoutshipoutbox ...physicalpagesizes }
+                                                  \endgroup 
+l.863 \end{frame}
+                 pdfTeX warning (ext4): destination with the same identifier (n
+ame{page.60}) has been already used, duplicate ignored
+
+\pgfpages@shipoutshipoutbox ...physicalpagesizes }
+                                                  \endgroup 
+l.863 \end{frame}
+                 
+
+ <./Figures/er_large.pdf>] [62
+
+pdfTeX warning (ext4): destination with the same identifier (name{Navigation61}
+) has been already used, duplicate ignored
+
+\pgfpages@shipoutshipoutbox ...physicalpagesizes }
+                                                  \endgroup 
+l.875 \end{frame}
+                 pdfTeX warning (ext4): destination with the same identifier (n
+ame{page.61}) has been already used, duplicate ignored
+
+\pgfpages@shipoutshipoutbox ...physicalpagesizes }
+                                                  \endgroup 
+l.875 \end{frame}
+                 
+
+] <Figures/tree.pdf, id=2061, 602.25pt x 602.25pt>
+File: Figures/tree.pdf Graphic file (type pdf)
+
+<use Figures/tree.pdf>
+Package pdftex.def Info: Figures/tree.pdf used on input line 895.
+(pdftex.def)             Requested size: 147.50119pt x 147.50198pt.
+
+Overfull \hbox (4.55623pt too wide) detected at line 895
+[][][] $[]$[][][][][][][][] $[]$[][][][][][] 
+ []
+
+[63
+
+pdfTeX warning (ext4): destination with the same identifier (name{Navigation62}
+) has been already used, duplicate ignored
+
+\pgfpages@shipoutshipoutbox ...physicalpagesizes }
+                                                  \endgroup 
+l.895 \end{frame}
+                 pdfTeX warning (ext4): destination with the same identifier (n
+ame{page.62}) has been already used, duplicate ignored
+
+\pgfpages@shipoutshipoutbox ...physicalpagesizes }
+                                                  \endgroup 
+l.895 \end{frame}
+                 
+
+]
+File: Figures/er_large.pdf Graphic file (type pdf)
+ <use Figures/er_large.pdf>
+Package pdftex.def Info: Figures/er_large.pdf used on input line 902.
+(pdftex.def)             Requested size: 245.83282pt x 245.83054pt.
+ [64
+
+pdfTeX warning (ext4): destination with the same identifier (name{Navigation63}
+) has been already used, duplicate ignored
+
+\pgfpages@shipoutshipoutbox ...physicalpagesizes }
+                                                  \endgroup 
+l.902 \end{frame}
+                 pdfTeX warning (ext4): destination with the same identifier (n
+ame{page.63}) has been already used, duplicate ignored
+
+\pgfpages@shipoutshipoutbox ...physicalpagesizes }
+                                                  \endgroup 
+l.902 \end{frame}
+                 
+
+ <./Figures/tree.pdf>] [65
+
+pdfTeX warning (ext4): destination with the same identifier (name{Navigation64}
+) has been already used, duplicate ignored
+
+\pgfpages@shipoutshipoutbox ...physicalpagesizes }
+                                                  \endgroup 
+l.912 \end{frame}
+                 pdfTeX warning (ext4): destination with the same identifier (n
+ame{page.64}) has been already used, duplicate ignored
+
+\pgfpages@shipoutshipoutbox ...physicalpagesizes }
+                                                  \endgroup 
+l.912 \end{frame}
                  
 
 ]
@@ -2152,28 +2321,28 @@ l.779 \end{frame}
 \tf@snm=\write8
 \openout8 = `lecture1.snm'.
 
- [58
+ [66
 
-pdfTeX warning (ext4): destination with the same identifier (name{Navigation57}
+pdfTeX warning (ext4): destination with the same identifier (name{Navigation65}
 ) has been already used, duplicate ignored
 
 \pgfpages@shipoutshipoutbox ...physicalpagesizes }
                                                   \endgroup 
-l.781 \end{document}
+l.914 \end{document}
                     pdfTeX warning (ext4): destination with the same identifier
- (name{page.57}) has been already used, duplicate ignored
+ (name{page.65}) has been already used, duplicate ignored
 
 \pgfpages@shipoutshipoutbox ...physicalpagesizes }
                                                   \endgroup 
-l.781 \end{document}
+l.914 \end{document}
                     
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 781.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 781.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 914.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 914.
  (./lecture1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 781.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 781.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 914.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 914.
 Package rerunfilecheck Info: File `lecture1.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
@@ -2181,13 +2350,13 @@ Package rerunfilecheck Info: File `lecture1.out' has not changed.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 781.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 914.
  ) 
 Here is how much of TeX's memory you used:
- 17430 strings out of 493029
- 334901 string characters out of 6136235
- 417577 words of memory out of 5000000
- 20409 multiletter control sequences out of 15000+600000
+ 17503 strings out of 493029
+ 336092 string characters out of 6136235
+ 417865 words of memory out of 5000000
+ 20460 multiletter control sequences out of 15000+600000
  14604 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,14n,55p,413b,588s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2198,23 +2367,25 @@ ive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
-17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/symbols/msam7.pfb>
-Output written on lecture1.pdf (57 pages, 5090611 bytes).
+type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+symbols/msam7.pfb>
+Output written on lecture1.pdf (65 pages, 5931205 bytes).
 PDF statistics:
- 1986 PDF objects out of 2073 (max. 8388607)
- 1710 compressed objects within 18 object streams
- 115 named destinations out of 1000 (max. 500000)
- 210 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2249 PDF objects out of 2487 (max. 8388607)
+ 1941 compressed objects within 20 object streams
+ 131 named destinations out of 1000 (max. 500000)
+ 225 words of extra memory for PDF output out of 10000 (max. 10000000)
 
