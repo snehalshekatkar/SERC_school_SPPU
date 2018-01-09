@@ -25,6 +25,10 @@ pos = gt.sfdp_layout(g, C = 0.4) # Repel nodes with higher C value
 
 colors = ['red', 'darkgreen', 'darkorange', 'purple', 'brown', 'aliceblue', 'cyan', 'magenta', 'yellow', 'darkmagenta']
 
+size = g.new_vertex_property('float')
+for v in g.vertices():
+    size[v] = 5 * np.sqrt(v.out_degree()) + 4
+
 color = g.new_vertex_property('string')
 for v in g.vertices():
     color[v] = colors[block[v]]
@@ -33,7 +37,7 @@ for v in g.vertices():
 '''Draw loops around communities'''
 fig, ax = plt.subplots()
 
-gt.graph_draw(g, pos = pos, vertex_fill_color = color, vertex_color = 'white', mplfig = ax)
+gt.graph_draw(g, pos = pos, vertex_shape = block, vertex_size = size, vertex_fill_color = color, vertex_color = 'white', mplfig = ax)
 
 for ind in range(max([block[v] for v in g.vertices()]) + 1):
 
@@ -94,7 +98,7 @@ for ind in range(max([block[v] for v in g.vertices()]) + 1):
 plt.axis('equal')
 #ax.set_aspect(1./ax.get_data_ratio())
 plt.axis('off')
-plt.savefig('with_loops.png', transparent = True, bboxinches = 'tight')
+plt.savefig('with_loops2.png', transparent = True, bboxinches = 'tight')
 plt.close()
 
 fig, ax = plt.subplots()
@@ -103,6 +107,6 @@ gt.graph_draw(g, pos = pos, fit_view = True, vertex_fill_color = 'b', vertex_asp
 #ax.axis('equal')
 ax.set_aspect(1./ax.get_data_ratio())
 ax.axis('off')
-plt.savefig('without_loops.png', transparent = True, bboxinches = 'tight')
+plt.savefig('without_loops2.png', transparent = True, bboxinches = 'tight')
 #plt.savefig('without_loops.pdf')
 plt.close()

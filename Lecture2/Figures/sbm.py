@@ -63,6 +63,9 @@ for v in g.vertices():
 print(group)
 
 colors = ['red', 'darkgreen', 'darkorange', 'purple', 'brown', 'aliceblue', 'cyan', 'magenta', 'yellow', 'darkmagenta']
+size = g.new_vertex_property('float')
+for v in g.vertices():
+    size[v] = 5 * np.sqrt(v.out_degree()) + 4
 
 '''Draw loops around communities'''
 fig, ax = plt.subplots()
@@ -70,7 +73,7 @@ color = g.new_vertex_property('string')
 for v in g.vertices():
     color[v] = colors[block[v]]
 
-gt.graph_draw(g, pos = pos, vertex_fill_color = color, vertex_color = 'white', mplfig = ax)
+gt.graph_draw(g, pos = pos, vertex_fill_color = color, vertex_color = 'white', vertex_shape = block, mplfig = ax)
 
 for ind in range(max(group) + 1):
 
@@ -130,5 +133,5 @@ for ind in range(max(group) + 1):
 
 plt.axis('equal')
 plt.axis('off')
-plt.savefig('test.pdf', bboxinches = 'tight')
+plt.savefig('sbm.pdf', bboxinches = 'tight')
 

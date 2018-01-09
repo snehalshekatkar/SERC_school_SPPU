@@ -3,6 +3,7 @@
 
 \usepackage{amsmath, amssymb, graphicx, float}
 \usepackage{ragged2e}
+\usepackage{relsize}
 
 %\usepackage{AnnArbor}
 %\usetheme{Berkeley}
@@ -245,7 +246,7 @@ A_{ij} = \begin{cases}
 }
         \item{{\bf Large-scale structures}: 
                 \begin{itemize}
-                    \item{components and percolation}
+                    \item{\bf components and percolation}
                     \item{small-world effect}
                     \item{ranking}
                     \item{{\bf degree distribution}}
@@ -833,6 +834,30 @@ A_{ij} = \begin{cases}
 %-------------------------
 %-------------------------
 \begin{frame}
+    \frametitle{}
+    \centering
+%\begin{equation*}
+%\begin{align*}
+$$\frac{d}{dS}(1-e^{-cS})\Bigr|_{S = 0} = 1$$
+\vspace{2em}
+$$\therefore ce^{-cS}\Bigr|_{S = 0} = 1$$
+\vspace{2em}
+$$\therefore c = 1$$
+%\end{align*}
+%\end{equation}
+
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{}
+    \centering
+    \includegraphics[width=0.55\columnwidth]{er_below_percolation.pdf}
+    \includegraphics[width=0.55\columnwidth]{er_large.pdf}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
     \frametitle{Small components}
 
     \note{
@@ -903,12 +928,48 @@ A_{ij} = \begin{cases}
 %-------------------------
 %-------------------------
 \begin{frame}
-    \frametitle{}
+    \frametitle{Small components}
     \centering
+    {\bf Small components are trees}
+    \vspace{2em}
     $$\binom{s}{2}-(s-1) = \frac{1}{2}(s-1)(s-2)$$
     The total number of extra edges:
 
     $$\frac{1}{2}(s-1)(s-2)\frac{c}{n-1} \rightarrow 0$$
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{}
+    \centering
+    \includegraphics[width=\columnwidth]{cavity.pdf}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{}
+    \centering
+    \includegraphics[width=\columnwidth]{cavity2.pdf}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{}
+For degree $3$ vertex, 
+    $$\mathlarger{P(s|k=3) = \pi_{s_1}\pi_{s_2}\pi_{s_3}}$$
+    $$s_1 + s_2 + s_3 = s-1$$
+\pause
+\justifying
+$$P(s|k) = \sum\limits_{s_1=0}^{\infty}\sum\limits_{s_2=0}^{\infty}\cdots\sum\limits_{s_k=0}^{\infty}\left[\prod\limits_{j=1}^k\pi_{s_j}\right]\delta(s-1, \sum\limits_js_j)$$
+\pause
+$$\pi_s = \sum\limits_{k=0}^{\infty}p_kP(s|k)$$
+$$<s> = \sum\limits_{s=0}^\infty s\pi_s$$
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{}
+    \centering
 \end{frame}
 %-------------------------
 \end{document}

@@ -3,7 +3,7 @@ import graph_tool.all as gt
 
 g = gt.Graph(directed = False)
 n = 5000
-c = 1.5
+c = 0.5
 
 edges = []
 for i in range(n-1):
@@ -15,7 +15,7 @@ g.add_edge_list(edges)
 pos = gt.sfdp_layout(g)
 #pos = gt.radial_tree_layout(g, root = 0)
 #pos = gt.arf_layout(g)
-gt.graph_draw(g, pos = pos, vertex_fill_color = 'purple', output = 'er_large.pdf')
+gt.graph_draw(g, pos = pos, vertex_fill_color = 'purple', output = 'er_below_percolation.pdf')
 
 position = np.array([tuple(pos[v]) for v in g.vertices()])
 print(position)
