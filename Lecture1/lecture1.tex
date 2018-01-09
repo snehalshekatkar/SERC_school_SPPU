@@ -156,13 +156,21 @@ A_{ij} = \begin{cases}
 \vspace{10pt}
 
 \note{For undirected networks, A is symmetric}
-Degree of a vertex: 
-\begin{equation*}
-k_i = \sum\limits_{j}A_{ij} 
-\end{equation*}
 \begin{figure}
 \includegraphics[width=0.5\columnwidth, trim = 0 0 0 100]{network.pdf}
 \end{figure}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Average degree}
+    Degree of a vertex: 
+    \begin{equation*}
+    k_i = \sum\limits_{j}A_{ij} 
+    \end{equation*}
+
+    Average degree of the network: 
+    $$<k> = \sum\limits_{i}k_i$$
 \end{frame}
 %-------------------------
 %--------------------------------------
@@ -683,19 +691,85 @@ k_i = \sum\limits_{j}A_{ij}
 %-------------------------
 %-------------------------
 \begin{frame}
-    \frametitle{Erd{\H o}s-R{\'e}nyi model (ER model)}
+    \frametitle{Erd{\H o}s-R{\'e}nyi model (ER model/$G(n, p)$)}
     \begin{itemize}
     \setlength\itemsep{1em}
         \item{Fix $n$ and the average degree $c$}
-        \item{Connect every pair of nodes with a probability $\frac{c}{n}$}
+        \item{Connect every pair of nodes with a probability $p = \frac{c}{n-1}$}
         \item{Number of graphs in the ensemble: $2^{\binom{n}{2}}$}
         \item{ER model: Every member of the ensemble is equally likely}
     \end{itemize}
+    \note{Uniform probability distribution over the ensemble}
     \centering
         \centering
             \includegraphics[width=0.3\columnwidth]{er0.pdf}
             \includegraphics[width=0.3\columnwidth]{er1.pdf}
             \includegraphics[width=0.3\columnwidth]{er2.pdf}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Properties of the ER model}
+    \centering
+    {\bf Average properties of the ensemble}
+    $$<m> = \sum\limits_GP(G)m(G) = \frac{1}{\Omega}\sum\limits_Gm(G)$$
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Properties of the ER model}
+    \centering
+    {\bf Degree distribution}
+    
+    \vspace{2em}
+    \begin{itemize}
+        \setlength\itemsep{1em}
+        \item{Given vertex can connect to remaining $n-1$ vertices}
+        \item{Probability of connecting to particular $k$ vertices: $$p^k(1-p)^{n-1-k}$$}
+        \item{There are $\binom{n-1}{k}$ ways to choose $k$ vertices}
+    \end{itemize}
+    \vspace{1em}
+    $p_k = \binom{n-1}{k}p^k(1-p)^{n-1-k} = e^{-c}\frac{c^k}{k!}$
+    \note{Poisson distribution with mean $c$//.//Poisson random graph}
+\end{frame}
+%-------------------------
+%-------------------------
+%\begin{frame}
+%    \frametitle{}
+%    $$p_k = \binom{n-1}{k}p^k(1-p)^{n-1-k}$$
+%    $$\therefore p_k = \binom{n-1}{k}\left(\frac{c}{n-1}\right)^k\left(1-\frac{c}{n-1}\right)^{n-1-k} = e^{-c}$$
+%    \centering
+%\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{The giant component}
+    \centering
+    $$p = 0 \hspace{10em} p = 1$$
+    \includegraphics[width=0.4\columnwidth]{er3.pdf}
+    \hspace{2em}
+    \includegraphics[width=0.4\columnwidth]{er4.pdf}
+
+    \vspace{1em}
+    {\bf What is the size of the largest component?}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{The giant component}
+    \centering
+    \begin{itemize}
+        \setlength\itemsep{1em}
+        \item{Giant component: size is an extensive function of the network size}
+        \item{Transition between the two extremes with $p$: gradual or sudden?}
+        \item{Size of the giant component as a function of $p$ can be calculated exactly}
+    \end{itemize}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{}
+    \centering
 \end{frame}
 %-------------------------
 %-------------------------
