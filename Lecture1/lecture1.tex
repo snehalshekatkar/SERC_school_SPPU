@@ -982,4 +982,94 @@ $$<s> = \sum\limits_{s=0}^\infty s\pi_s$$
     \end{columns}
 \end{frame}
 %-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Configuration model}
+    \centering
+    \begin{itemize}
+    \setlength\itemsep{1em}
+        \item{Model with a given degree sequence}
+        \item{More realistic and more flexible}
+        \item{Can be solved exactly in the limit}
+    \end{itemize}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Configuration model}
+    \begin{columns}
+    \column{0.6\linewidth}
+    \begin{itemize}
+    \setlength\itemsep{1em}
+        \item{Specify $k_i$ for $i=1, 2, \cdots, n$}
+        \item{Every vertex $i$ has $k_i$ half-edges/stubs}
+        \item{$\sum\limits_i k_i = 2m$}
+        \item{Randomly connect stubs to each other}
+        \item{Every matching appears with equal probability}
+    \end{itemize}
+
+    \column{0.4\linewidth}
+    \centering
+    \includegraphics[width=0.8\columnwidth]{configuration.pdf}
+    \note{self-loops and multiedges}
+    \end{columns}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Configuration model}
+    \centering
+    \vspace{2em}
+    {\bf Do all graphs appear with equal probability?}
+
+    \pause
+    \vspace{1em}
+    More than one matchings can correspond to the same graph
+    %\vspace{2em}
+    \includegraphics[width=0.8\columnwidth,trim = 0 200 0 80, clip = true]{triangle.pdf} 
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Configuration model}
+    \centering
+    Number of matchings for the network $N$: $N(\{k_i\}) = \prod_ik_i!$\\
+
+    \vspace{2em}
+    Thus, networks do occur with equal probability!
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Configuration model}
+    \centering
+    \includegraphics[width=\columnwidth]{dumbelled.pdf}
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Configuration model}
+    \centering
+    $$N = \frac{\prod_i k_i!}{\prod_{i<j}A_{ij}!\prod_i A_{ii}!!}$$
+
+    \vspace{2em}
+    $$n!! = n(n-2)(n-4)\cdots 2$$
+
+    \vspace{2em}
+    Graphs do not appear with equal probability!
+\end{frame}
+%-------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Summary}
+    \centering
+    \begin{itemize}
+    \setlength\itemsep{1em}
+        \item{Many real networks have fat-tailed degree distributions}
+        \item{Naturally occuring networks tend be dissortative by degree}
+        \item{Social networks tend to be assortative by degree}
+        \item{Random graphs provide a powerful way to describe the large-scale structure of complex networks}
+    \end{itemize}
+\end{frame}
+%-------------------------
 \end{document}
