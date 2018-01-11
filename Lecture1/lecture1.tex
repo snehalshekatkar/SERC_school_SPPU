@@ -566,11 +566,12 @@ A_{ij} = \begin{cases}
         \item{Fraction of edges connecting vertices of the same type?}
         
         \pause
-        \item{Fraction of the actual minus the expected number of edges connecting the vertices when connections are made at random\\
+        %\item{Fraction of the actual minus the expected number of edges connecting the vertices when connections are made at random\\
+        \item{Maximize: Actual number of edges between the same type minus the number of expected edges between the same types}
 
         \pause
         \item{Has value $0$ in trivial cases}
-}
+
     \end{itemize}
 \end{frame}
 %--------------------------------------
@@ -605,7 +606,7 @@ A_{ij} = \begin{cases}
 %--------------------------------------
 %--------------------------------------
 \begin{frame}
-    \frametitle{Modularity}
+    %\frametitle{Modularity}
         $$\frac{1}{2}\sum\limits_{i,j}A_{ij}\delta(c_i,c_j)-\frac{1}{2}\sum\limits_{ij}\frac{k_ik_j}{2m}\delta(c_i,c_j)=\frac{1}{2}\sum\limits_{ij}\left(A_{ij}-\frac{k_ik_j}{2m}\right)\delta(c_i,c_j)$$ 
 
         \vspace{2em}
@@ -670,10 +671,10 @@ A_{ij} = \begin{cases}
 
     \begin{itemize}
     \setlength\itemsep{1em}
+        \item{Better way to describe the structure of the networks}
         \item{Generative models of networks}
         \item{Probabilistic models capable of generating an observed data}
         \item{Certain properties can be fixed for generative models}
-        \item{Better way to describe the structure of the networks}
     \end{itemize}
         
 \end{frame}
