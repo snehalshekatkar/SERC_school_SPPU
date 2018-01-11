@@ -3,7 +3,7 @@
 
 \usepackage{amsmath, amssymb, graphicx, float}
 \usepackage{ragged2e}
-\usepackage{relsize}
+\usepackage{relsize,xcolor}
 
 %\usepackage{AnnArbor}
 %\usetheme{Berkeley}
@@ -23,7 +23,8 @@
 %\usetheme{Warsaw}
 
 \usepackage{pgfpages}
-\setbeameroption{show notes on second screen=right}
+%\setbeamertemplate{note page}[plain]
+%\setbeameroption{show notes on second screen=right}
 \setbeamerfont{title}{family=\rm}
 \usefonttheme{serif}
 %\setmainfont{Liberation Serif}
@@ -134,10 +135,13 @@
 %--------------------------------------
 \begin{frame}
     \frametitle{When is a network description useful?}
+    \pause
     \begin{itemize}
     \setlength\itemsep{1em}
         \item{Sparse data}
+    \pause
         \item{Lack of regularity}
+    \pause
         \item{Lack of a better model}
     \end{itemize}
 \end{frame}
@@ -164,20 +168,24 @@ A_{ij} = \begin{cases}
 %-------------------------
 %-------------------------
 \begin{frame}
-    \frametitle{Average degree}
+    \frametitle{Degree}
     Degree of a vertex: 
     \begin{equation*}
     k_i = \sum\limits_{j}A_{ij} 
     \end{equation*}
 
     Average degree of the network: 
-    $$<k> = \sum\limits_{i}k_i$$
+    $$<k> = \frac{1}{N}\sum\limits_{i}k_i$$
+\begin{figure}
+\includegraphics[width=0.5\columnwidth, trim = 0 0 0 100]{network.pdf}
+\end{figure}
 \end{frame}
 %-------------------------
 %--------------------------------------
 \begin{frame}
     \frametitle{Complex networks}
     \begin{itemize}
+        \pause
     \setlength\itemsep{2em}
        \item{\Large {\bf Complex}: Edge of order and randomness}
         \pause
@@ -215,14 +223,14 @@ A_{ij} = \begin{cases}
 %--------------------------------------
 
 %----------------------------------------
-\begin{frame}
-    \frametitle{Simplifications}
-    \centering
-    {\Large \bf The largest component}
-    \begin{figure}
-        \includegraphics[width=0.7\columnwidth]{netscience.pdf}
-    \end{figure}
-\end{frame}
+%\begin{frame}
+%    \frametitle{Simplifications}
+%    \centering
+%    {\Large \bf The largest component}
+%    \begin{figure}
+%        \includegraphics[width=0.7\columnwidth]{netscience.pdf}
+%    \end{figure}
+%\end{frame}
 %----------------------------------------
 
 %--------------------------------------
@@ -246,12 +254,12 @@ A_{ij} = \begin{cases}
 }
         \item{{\bf Large-scale structures}: 
                 \begin{itemize}
-                    \item{\bf components and percolation}
+                    \item{\textcolor{red}{components and percolation}}
                     \item{small-world effect}
                     \item{ranking}
-                    \item{{\bf degree distribution}}
-                    \item{{\bf assortative mixing}}
-                    \item{{\bf community structure}}
+                    \item{\textcolor{red}{degree distribution}}
+                    \item{\textcolor{red}{assortative mixing}}
+                    \item{\textcolor{red}{community structure}}
                 \end{itemize}
 }
     \end{itemize}
@@ -365,6 +373,8 @@ A_{ij} = \begin{cases}
     \frametitle{Detecting and visualizing power-laws}
     \centering
     How do we know that a given distribution is a power-law?
+    
+    (For $k > k_{\text{min}}$)
     \begin{itemize}
     \setlength\itemsep{1em}
         \item{Creating a log-log plot}
@@ -474,9 +484,19 @@ A_{ij} = \begin{cases}
     $$\sigma = \frac{\alpha-1}{\sqrt{N}}$$
 \end{frame}
 %--------------------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{Validating power-laws}
+    \centering
+    {\bf ``Power-law distributions in empirical data.''}
+
+    {\small Clauset, Shalizi, and Newman.  SIAM review 51.4 (2009): 661-703.}
+\end{frame}
+%-------------------------
 %--------------------------------------
 \begin{frame}
     \frametitle{Assortative mixing}
+    \pause
     \vspace{2em}
     \centering
     {\small Social network of school-children with two races: Black and White}
@@ -503,8 +523,10 @@ A_{ij} = \begin{cases}
 %--------------------------------------
 \begin{frame}
     \centering
-        \vspace{1em}
+        \vspace{2em}
     {\bf Assortative mixing by enumerative characteristics}
+
+        \vspace{1em}
         \begin{itemize}
         \setlength\itemsep{1em}
             \item{Characteristics with a finite set of values} 
@@ -513,6 +535,7 @@ A_{ij} = \begin{cases}
         \end{itemize}
         \vspace{1em}
     {\bf Assortative mixing by scalar characteristics}
+        \vspace{1em}
         \begin{itemize}
         \setlength\itemsep{1em}
             \item{Characteristics with a finite or infinite set of values}
@@ -520,19 +543,26 @@ A_{ij} = \begin{cases}
             \item{Age, income, degree}
         \end{itemize}
         \pause
+\end{frame}
+%--------------------------------------
+%-------------------------
+\begin{frame}
+    \frametitle{}
+    \centering
         \vspace{1em}
         The network is {\bf assortative} if a large fraction of the edges fall between vertices of the same type
 
         \vspace{1em}
         If the opposite is true, the network is called {\bf dissortative}
 \end{frame}
-%--------------------------------------
+%-------------------------
 %--------------------------------------
 \begin{frame}
     \frametitle{Quantification for enumerative characteristics}
         
     \begin{itemize}
     \setlength\itemsep{2em}
+        \pause
         \item{Fraction of edges connecting vertices of the same type?}
         
         \pause
