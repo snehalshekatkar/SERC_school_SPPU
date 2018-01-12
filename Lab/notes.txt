@@ -1,0 +1,37 @@
+* Python interpreter
+
+* Numbers, operations, variables, boolean variables
+
+* Files, print function
+
+* Lists: indexing, slicing, append, del, pop, count, reverse, sort
+
+    - combining lists: concatenate, extend
+
+* Tuples
+
+* Strings
+
+* Dictionaries: key-value, del, add new key-value pair
+
+* Control flows: 
+    - indenting
+    - if, if-else, if-elif-else
+    - for, range
+
+* math module and random module
+
+* networkx
+    - Creating an empty graph: G = nx.Graph()
+    - Adding a single node: G.add_node(2)
+    - Adding a list of nodes: G.add_nodes_from([2, 3])
+    - Adding a single edge: G.add_edge(1, 2)
+    - Adding a list of edges: G.add_edges_from([(1, 2), (2, 4)])
+    - Number of nodes: G.number_of_nodes()
+    - Number of edges: G.number_of_edges()
+    - View nodes: G.nodes
+    - View edges: G.edges
+    - Degree of a node: G.degree(2)
+    - Adjacency list: G.adj
+    
+* Girvan-Newman Algorithm
