@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.11.16)  12 JAN 2018 18:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016/Debian) (preloaded format=pdflatex 2017.11.16)  13 JAN 2018 10:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1048,7 +1048,7 @@ Package pdftex.def Info: Figures/kl1.pdf used on input line 165.
  [11
 
 ]
-<Figures/kl2.pdf, id=333, 602.25pt x 602.25pt>
+<Figures/kl2.pdf, id=332, 602.25pt x 602.25pt>
 File: Figures/kl2.pdf Graphic file (type pdf)
  <use Figures/kl2.pdf>
 Package pdftex.def Info: Figures/kl2.pdf used on input line 188.
@@ -1070,7 +1070,7 @@ Package pdftex.def Info: Figures/kl2.pdf used on input line 188.
  [14
 
 ]
-<Figures/local_minima.pdf, id=419, 578.16pt x 433.62pt>
+<Figures/local_minima.pdf, id=418, 578.16pt x 433.62pt>
 File: Figures/local_minima.pdf Graphic file (type pdf)
 
 <use Figures/local_minima.pdf>
@@ -1177,7 +1177,7 @@ Overfull \hbox (20.27681pt too wide) detected at line 292
 ] [50
 
 ]
-<Figures/karate_raw.pdf, id=1355, 602.25pt x 602.25pt>
+<Figures/karate_raw.pdf, id=1354, 602.25pt x 602.25pt>
 File: Figures/karate_raw.pdf Graphic file (type pdf)
 
 <use Figures/karate_raw.pdf>
@@ -1598,11 +1598,11 @@ Overfull \hbox (4.75006pt too wide) in paragraph at lines 948--948
 \tf@snm=\write8
 \openout8 = `lecture2.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 963.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 963.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 965.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 965.
  (./lecture2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 963.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 963.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 965.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 965.
 Package rerunfilecheck Info: File `lecture2.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
@@ -1612,33 +1612,31 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 19362 strings out of 493013
- 360413 string characters out of 6135681
+ 19363 strings out of 493013
+ 360425 string characters out of 6135681
  427921 words of memory out of 5000000
- 22251 multiletter control sequences out of 15000+600000
- 12627 words of font info for 48 fonts, out of 8000000 for 9000
+ 22252 multiletter control sequences out of 15000+600000
+ 12795 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,14n,55p,790b,591s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Navigation93} has been referenced but does not ex
-ist, replaced by a fixed one
-
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb>
-Output written on lecture2.pdf (92 pages, 2072892 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb>
+Output written on lecture2.pdf (92 pages, 2084320 bytes).
 PDF statistics:
- 2746 PDF objects out of 2984 (max. 8388607)
- 2505 compressed objects within 26 object streams
- 186 named destinations out of 1000 (max. 500000)
+ 2750 PDF objects out of 2984 (max. 8388607)
+ 2508 compressed objects within 26 object streams
+ 185 named destinations out of 1000 (max. 500000)
  254 words of extra memory for PDF output out of 10000 (max. 10000000)
 
