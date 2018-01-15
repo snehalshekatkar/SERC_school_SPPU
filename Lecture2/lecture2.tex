@@ -285,6 +285,7 @@ Minimization with constraints $\Rightarrow$ Lagrange multipliers
 %In matrix notation,
     \pause
 $${\mathbf L}{\mathbf s} = \lambda {\mathbf s} + \mu {\mathbf 1} = \lambda \left({\mathbf s} + \frac{\mu}{\lambda}{\mathbf 1}\right)$$
+    \pause
     $${\mathbf L}\left({\mathbf s} + \frac{\mu}{\lambda}{\mathbf 1}\right) = \lambda \left({\mathbf s} + \frac{\mu}{\lambda}{\mathbf 1}\right)$$
     \centering
     ${\mathbf 1}$ is an eigenvector of the Laplacian with eigenvalue $0$
@@ -296,9 +297,13 @@ $${\mathbf L}{\mathbf s} = \lambda {\mathbf s} + \mu {\mathbf 1} = \lambda \left
     \frametitle{}
     \centering
     $${\mathbf L}{\mathbf s} = \lambda {\mathbf s} + \mu {\mathbf 1}$$
+    \vspace{0.25em}
     $${\mathbf 1}^T{\mathbf L}{\mathbf s} = \lambda {\mathbf 1}^T{\mathbf s} + \mu {\mathbf 1}^T{\mathbf 1}$$
+    \vspace{0.25em}
     $$({\mathbf L}{\mathbf 1})^T{\mathbf s} =\lambda {\mathbf 1}^T{\mathbf s} + \mu {\mathbf 1}^T{\mathbf 1}$$
+    \vspace{0.25em}
     $$0 = (n_1-n_2)\lambda + \mu n$$
+    \vspace{0.25em}
     $$\mu = -\frac{n_1-n_2}{n}\lambda$$
 \end{frame}
 %-------------------------
@@ -324,7 +329,7 @@ $${\mathbf L}{\mathbf s} = \lambda {\mathbf s} + \mu {\mathbf 1} = \lambda \left
     \frametitle{Spectral partitioning}
     \centering
     Which eigenvector to choose?
-    $$R = \frac{1}{4}{\mathbf s}^T{\mathbf L}{\mathbf s} = \frac{1}{4}{\mathbf x}^T{\mathbf x} = \frac{n_1n_2}{n}\lambda$$
+    $$R = \frac{1}{4}{\mathbf s}^T{\mathbf L}{\mathbf s} = \frac{1}{4}\lambda{\mathbf x}^T{\mathbf x} = \frac{n_1n_2}{n}\lambda$$
     Choose the eigenvector with smallest possible eigenvalue!
 
     \vspace{1em}
@@ -479,8 +484,6 @@ $${\mathbf L}{\mathbf s} = \lambda {\mathbf s} + \mu {\mathbf 1} = \lambda \left
                 \item{Needs ad hoc specification of sizes}
             \end{itemize}
 
-
-
 }
 
             \note<1>{Empty group}
@@ -619,7 +622,7 @@ $$s_i = \begin{cases}+1&\quad \text{if vertex $i$ belongs to group $1$}\\-1 &\qu
 $$\frac{1}{2}(1+s_is_j) = \begin{cases}1&\quad\text{if $i$ and $j$ belong to the same group}\\0&\quad\text{Otherwise}\end{cases}$$
 \pause
     \vspace{1em}
-$$B = \frac{1}{2m}\sum\limits_{ij}B_{ij}\delta(c_i,c_j) = \frac{1}{4m}\sum\limits_{ij}B_{ij}(1 + s_is_j) = \frac{1}{4m}\sum\limits_{ij}B_{ij}s_is_j$$
+$$Q = \frac{1}{2m}\sum\limits_{ij}B_{ij}\delta(c_i,c_j) = \frac{1}{4m}\sum\limits_{ij}B_{ij}(1 + s_is_j) = \frac{1}{4m}\sum\limits_{ij}B_{ij}s_is_j$$
     \vspace{1em}
 $$Q = \frac{1}{4m}{\mathbf s}^T{\mathbf B}{\mathbf s}$$
 \end{frame}
@@ -657,6 +660,7 @@ $$Q = \frac{1}{4m}\beta{\mathbf s}^T{\mathbf B}{\mathbf s} = \frac{1}{4m}\beta {
 
 Thus, choose ${\mathbf s}$ to be the eigenvector ${\mathbf u_1}$ corresponding to the largest eigenvalue of the modularity matrix\\
 
+\vspace{1em}
 Maximize:
 $${\mathbf s}^T{\mathbf u}_1 = \sum\limits_is_iu_{1i}$$
 
